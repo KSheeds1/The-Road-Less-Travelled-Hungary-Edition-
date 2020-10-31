@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap');
+
+body{
+    background-color: #D0ECE7;
+}
+
+.navbar-brand{
+    font-family: "Rock Salt", sans-serif;
+    font-size: 14px;
+}
+
+.nav-item{
+    font-family: "Coromorant Garamond", sans-serif;
+}
+
+.bg-color{
+    background-color: #0B5345; 
+}
