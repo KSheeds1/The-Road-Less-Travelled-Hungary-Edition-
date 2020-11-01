@@ -45,3 +45,7 @@ img{
     font-family: "Rock Salt", sans-serif;
     font-weight: bold;
 }
+
+#map{
+    min-height: 400px;
+}
