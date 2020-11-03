@@ -60,6 +60,11 @@ img{
     font-family: "Rock Salt", sans-serif;
     font-weight: bold;
 }
+/*-------------------------Card*/
+.hungary-card{
+    background-color: #D0ECE7;
+
+}
 
 /*-------------------------Map*/
 #map{
