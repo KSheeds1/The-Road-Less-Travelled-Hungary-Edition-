@@ -64,7 +64,7 @@ img{
 /*-------------------------Card*/
 .hungary-card{
     background-color: #D0ECE7;
-
+    border: 1px solid #640e27;
 }
 
 .title{
@@ -79,6 +79,7 @@ img{
 .list-group .list-group-item{
     background-color: #D0ECE7;
     font-family: "Coromorant Garamond", sans-serif;
+    color: #640E27;
 }
 
 /*-------------------------Map*/
