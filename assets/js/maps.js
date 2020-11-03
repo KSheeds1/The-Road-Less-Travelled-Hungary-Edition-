@@ -10,48 +10,27 @@ function initMap() {
     let labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     let locations = [
-        { lat: 47.496717, lng: 19.013397 },
-        { lat: 46.0751089, lng: 18.2261525 },
-        { lat: 46.9019145, lng: 18.0447842 },
-        { lat: 46.7498531, lng: 17.1719147 }
+        { name:"Budapest", lat: 47.496717,  lng: 19.013397, url: "budapest.html"},
+        { name: "Pécs", lat: 46.0751089, lng: 18.2261525, url: "pecs.html"},
+        { name: "Siofok", lat: 46.9019145, lng: 18.0447842, url: "siofok.html" },
+        { name: "Keszthely", lat: 46.7498531, lng: 17.1719147, url: "keszthely.html"}
     ];
+    
+    
+    
 
     let markers = locations.map(function(location, i) {
-        return new google.maps.Marker({
+        let marker = new google.maps.Marker({
             map,
             draggable: false,
             animation: google.maps.Animation.DROP,
             position: location,
+            url: locations[i].url,
             label: labels[i % labels.length]
         });
+        google.maps.event.addListener(marker, "click", function() {
+            window.location.href = this.url;
+        });
     });
-
-    function drop() {
-        clearMarkers();
-
-        for (let i =0; i < locations.length; i++) {
-            addMarkerWithTimeout(locations[i], i * 200);
-        };
-    }
-
-    function addMarkerWithTimeout(position, timeout) {
-        window.setTimeout(() => {
-            markers.push(
-                new google.maps.Marker({
-                    position: location,
-                    map,
-                    animation: google.maps.Animation.DROP,
-                })
-            );
-            
-        }, timeout);
-    }
-
-    function clearMarkers() {
-        for (let i = 0; i <markers.length; i++) {
-            markers[i].setMap(null);
-        }
-        markers = [];
-    }
     
 }
