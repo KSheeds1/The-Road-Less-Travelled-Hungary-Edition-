@@ -8,6 +8,11 @@ body{
 .general-sub{
     font-family: "Rock Salt", sans-serif;
 }
+
+p{
+    font-family: "Cormorant Garamond", sans-serif;
+    font-size: 20px;
+}
 /*--------------------------Nav*/
 .navbar-brand{
     font-family: "Rock Salt", sans-serif;
@@ -63,7 +68,8 @@ footer{
     background-color: #0B5345;
     color: #fafafa;
     margin: 0;
-    min-height: 100px;    
+    min-height: 100px;   
+    padding: 20px; 
 }
 
 .social-links{
@@ -71,21 +77,12 @@ footer{
 }
 
 .social-links li a i{
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     padding: 12px 0;
     border-radius: 50%;
     font-size: 13px;
     line-height: 7px;
     text-align: center;
     color: #fafafa;
-    background: #8f8f8f;
-    transition: all 0.35s ease-in-out;
-    -moz-transition: all 0.35s ease-in-out;
-    -webkit-transition: all 0.35s ease-in-out;
-    -o-transition: all 0.35s ease-in-out;
-}
-
-.social-links li a i:hover{
-    background: #000000;
 }
