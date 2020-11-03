@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap');
-
+/*--------------------------General*/
 body{
     background-color: #D0ECE7;
 }
 
+.general-sub{
+    font-family: "Rock Salt", sans-serif;
+}
+/*--------------------------Nav*/
 .navbar-brand{
     font-family: "Rock Salt", sans-serif;
     font-size: 14px;
@@ -18,6 +22,7 @@ body{
     background-color: #0B5345; 
 }
 
+/*----------------------Carousel*/
 img{
     height: 800px;
     margin-left: auto;
@@ -46,6 +51,41 @@ img{
     font-weight: bold;
 }
 
+/*-------------------------Map*/
 #map{
     min-height: 400px;
+    margin-bottom: 20px;
+}
+
+/*------------------Footer*/
+
+footer{
+    background-color: #0B5345;
+    color: #fafafa;
+    margin: 0;
+    min-height: 100px;    
+}
+
+.social-links{
+    padding-bottom: 15px;
+}
+
+.social-links li a i{
+    width: 32px;
+    height: 32px;
+    padding: 12px 0;
+    border-radius: 50%;
+    font-size: 13px;
+    line-height: 7px;
+    text-align: center;
+    color: #fafafa;
+    background: #8f8f8f;
+    transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    -webkit-transition: all 0.35s ease-in-out;
+    -o-transition: all 0.35s ease-in-out;
+}
+
+.social-links li a i:hover{
+    background: #000000;
 }
