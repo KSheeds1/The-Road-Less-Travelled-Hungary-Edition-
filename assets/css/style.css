@@ -13,6 +13,11 @@ p{
     font-family: "Cormorant Garamond", sans-serif;
     font-size: 20px;
 }
+
+.title{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 /*--------------------------Nav*/
 .navbar-brand{
     font-family: "Rock Salt", sans-serif;
