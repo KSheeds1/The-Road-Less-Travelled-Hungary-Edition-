@@ -17,6 +17,7 @@ p{
 .title{
     margin-top: 20px;
     margin-bottom: 20px;
+    color: #640e27;
 }
 /*--------------------------Nav*/
 .navbar-brand{
@@ -64,6 +65,20 @@ img{
 .hungary-card{
     background-color: #D0ECE7;
 
+}
+
+.title{
+    font-family: "Rock Salt", sans-serif;
+}
+
+.card-img-top{
+    width: 75%;
+    height: 50%;
+}
+
+.list-group .list-group-item{
+    background-color: #D0ECE7;
+    font-family: "Coromorant Garamond", sans-serif;
 }
 
 /*-------------------------Map*/
