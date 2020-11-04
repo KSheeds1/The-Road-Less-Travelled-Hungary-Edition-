@@ -99,6 +99,10 @@ img{
     border: 1px solid #640E27; 
 }
 
+.custom-select select{
+    background-color: #640E27;
+}
+
 .select-selected{
     background-color: #0B5345;
 }
@@ -114,7 +118,12 @@ img{
     border-color: #fff transparent transparent transparent;
 }
 
-.select-items div, .select-selected{
+.select-selected.select-arrow-active:after{
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+}
+
+.select-items div,.select-selected{
     color: #fff;
     padding: 8px 16px;
     border: 1px solid transparent;
@@ -131,8 +140,12 @@ img{
     z-index: 99;
 }
 
+.select-hide{
+    display: none;
+}
+
 .select-items div:hover, .same-as-selected{
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: #0B5345;
 }
 
 
