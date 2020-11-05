@@ -42,3 +42,13 @@ function initMap() {
         }
     });
 }
+
+function initMap() {
+    let map = new google.maps.Map(document.getElementById("mapKeszthely"), {
+        zoom: 12,
+        center: { 
+            lat: 46.7498531, 
+            lng: 17.1719147
+        }
+    });
+}
