@@ -93,6 +93,11 @@ img{
     margin-bottom: 20px;
 }
 
+#mapKeszthely{
+    min-height: 400px;
+    margin-bottom: 20px;
+}
+
 /*---------------------Custom Select Menu*/
 .custom-select{
     position: relative;
