@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <title>Keszthely</title>
+
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCK0XoUPQBSO3vkVGPNIyJsXfW-EfoZj4o&libraries=places&callback=initMap"></script>
+    <script src="assets/js/maps.js"></script>
 </head>
 <body>
     <header>
@@ -94,7 +97,7 @@
             </div>
         </div>
     </section>
-    <section class="container-fluid" id="map-keszthely">
+    <section class="container-fluid keszthely-map">
         <div class="row">
             <div class="col-sm-3">
                 <select name="Check out the" id="search-options" class="browser-default custom-select">
@@ -105,6 +108,11 @@
                     <option value="4">Restaurants</option>
                     <option value="5">Shopping</option>
                 </select>
+            </div>
+        </div>
+        <div class="d-flex flex-row-reverse">
+            <div class="col-sm-9">
+                <div id="mapKeszthely"></div>
             </div>
         </div>
     </section>
