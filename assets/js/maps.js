@@ -16,9 +16,6 @@ function initMap() {
         { name: "Keszthely", lat: 46.7498531, lng: 17.1719147, url: "keszthely.html"}
     ];
     
-    
-    
-
     let markers = locations.map(function(location, i) {
         let marker = new google.maps.Marker({
             map,
@@ -32,5 +29,16 @@ function initMap() {
             window.location.href = this.url;
         });
     });
-    
+
+
+}
+
+function initMap() {
+    let map = new google.maps.Map(document.getElementById("mapBudapest"), {
+        zoom: 12,
+        center: { 
+            lat: 47.496717,  
+            lng: 19.013397
+        }
+    });
 }
