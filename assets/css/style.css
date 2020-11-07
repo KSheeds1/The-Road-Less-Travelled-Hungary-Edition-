@@ -98,6 +98,15 @@ img{
     margin-bottom: 20px;
 }
 
+#mapSiofok{
+   min-height: 400px;
+   margin-bottom: 20px; 
+}
+
+#mapPecs{
+    min-height: 400px;
+    margin-bottom: 20px;
+}
 /*---------------------Custom Select Menu*/
 .custom-select{
     position: relative;
