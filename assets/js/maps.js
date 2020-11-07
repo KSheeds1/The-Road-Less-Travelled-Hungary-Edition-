@@ -70,8 +70,8 @@ function initKeszthelyMap() {
 }
 
 function initSiofokMap() {  
-    let mapKeszthely = new google.maps.Map(document.getElementById("mapSiofok"), {
-        zoom: 12,
+    let mapSiofok = new google.maps.Map(document.getElementById("mapSiofok"), {
+        zoom: 13,
         center: { 
            lat: 46.9019145,
            lng: 18.0447842
@@ -80,7 +80,7 @@ function initSiofokMap() {
 }
 
 function initPecsMap() {  
-    let mapKeszthely = new google.maps.Map(document.getElementById("mapPecs"), {
+    let mapPecs = new google.maps.Map(document.getElementById("mapPecs"), {
         zoom: 12,
         center: { 
            lat: 46.0751089,
