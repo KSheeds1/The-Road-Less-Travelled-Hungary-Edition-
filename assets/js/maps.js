@@ -2,6 +2,8 @@ function initMaps() {
     initMap();
     initBudapestMap();
     initKeszthelyMap();
+    initSiofokMap();
+    initPecsMap();
     
 }
 
@@ -45,26 +47,6 @@ function initMap() {
             window.location.href = marker.url;
         });
     }
-    
-
-    
-
-    /*let markers = locations.map(function(location, i) {
-        let marker = new google.maps.Marker({
-            mapDestinations,
-            draggable: false,
-            animation: google.maps.Animation.DROP,
-            position: location,
-            url: locations[i].url,
-            label: labels[i % labels.length]
-        });
-        
-        google.maps.event.addListener(marker, "click", function() {
-            window.location.href = this.url;
-        });
-    });*/
-  
-
 }
 
 function initBudapestMap() {
@@ -86,3 +68,24 @@ function initKeszthelyMap() {
         }
     });
 }
+
+function initSiofokMap() {  
+    let mapKeszthely = new google.maps.Map(document.getElementById("mapSiofok"), {
+        zoom: 12,
+        center: { 
+           lat: 46.9019145,
+           lng: 18.0447842
+        }
+    });
+}
+
+function initPecsMap() {  
+    let mapKeszthely = new google.maps.Map(document.getElementById("mapPecs"), {
+        zoom: 12,
+        center: { 
+           lat: 46.0751089,
+           lng: 18.2261525
+        }
+    });
+}
+
