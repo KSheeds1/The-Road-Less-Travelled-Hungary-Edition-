@@ -107,66 +107,56 @@ img{
     min-height: 400px;
     margin-bottom: 20px;
 }
-/*---------------------Custom Select Menu*/
-.custom-select{
+/*---------------------Dropdown Menu*/
+.dropdown{
     position: relative;
+    display: inline-block;
+    border: 1px solid #640E27;
+    border-radius: .3rem;
+    width: 300px;
     font-family: "Coromorant Garamond", sans-serif;
-    font-size: 18px;
-    color: #ffffff;
-    width: 400px;
-    background-color: #640E27;
-    border: 1px solid #640E27; 
 }
 
-.custom-select select{
-    background-color: #640E27;
+.btn:hover{
+    color: #808080;
 }
 
-.select-selected{
+.btn, .btn-lg{
+    width: 300px;
+}
+
+.btn, .btn-color{
+    background-color: #640E27;
+    color: #fafafa;
+}
+
+
+.btn, .btn-color .dropdown-toggle:active{
+    background-color: #640E27;
+    color: #fafafa;
+}
+
+
+.dropdown-menu{
+    background-color: #D0ECE7;
+    box-shadow: 5px 10px rgba(0, 0, 0, 0.5);
+    border: 1px solid #640E27;
+    width: 250px;
+}
+
+.dropdown-item{
+    color: #640E27;
+}
+
+.dropdown-item a:active{
+    background-color: #640E27;
+    color: #fafafa;
+}
+
+.dropdown-item a:hover{
     background-color: #0B5345;
-}
 
-.select-selected:after{
-    position: absolute;
-    content: "";
-    top: 14px;
-    right: 10px;
-    width: 0;
-    height: 0;
-    border: 6px solid transparent;
-    border-color: #fff transparent transparent transparent;
 }
-
-.select-selected.select-arrow-active:after{
-    border-color: transparent transparent #fff transparent;
-    top: 7px;
-}
-
-.select-items div,.select-selected{
-    color: #fff;
-    padding: 8px 16px;
-    border: 1px solid transparent;
-    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-    cursor: pointer;
-}
-
-.select-items{
-    position: absolute;
-    background-color: #640E27;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 99;
-}
-
-.select-hide{
-    display: none;
-}
-
-.select-items div:hover, .same-as-selected{
-    background-color: #0B5345;
-}
-
 
 
 
