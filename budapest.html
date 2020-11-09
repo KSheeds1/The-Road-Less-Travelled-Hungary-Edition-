@@ -91,14 +91,18 @@
     <section class="container-fluid budapest map">
         <div class="row">
             <div class="col-sm-3">
-                <select name="Check out the" id="search-options" class="browser-default custom-select">
-                    <option value="0">Check out the..</option>
-                    <option value="1">Accommodation</option>
-                    <option value="2">Attractions</option>
-                    <option value="3">Nightlife</option>
-                    <option value="4">Restaurants</option>
-                    <option value="5">Shopping</option>
-                </select>
+                <div class="dropdown">
+                    <button class="btn btn-color btn-lg dropdown-toggle" type="button" role="menu" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Check out the..
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Accommodation</a>
+                    <a class="dropdown-item" href="#">Attractions</a>
+                    <a class="dropdown-item" href="#">Nightlife</a>
+                    <a class="dropdown-item" href="#">Restaurants</a>
+                    <a class="dropdown-item" href="#">Shopping</a>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="d-flex flex-row-reverse">
@@ -140,7 +144,7 @@
         </div>
     </footer>
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCK0XoUPQBSO3vkVGPNIyJsXfW-EfoZj4o&libraries=localContext&v=beta&callback=initBudapestMap"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCK0XoUPQBSO3vkVGPNIyJsXfW-EfoZj4o&libraries=places&callback=initBudapestMap"></script>
     <script src="assets/js/maps.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
