@@ -188,9 +188,10 @@ footer{
 /*-------------------------Contact-Page*/
 
 #contact{
-    background: url("/images/contact-us-image/contact-pg-img.jpg") no-repeat bottom right fixed;
+    background: url("../images/contact-pg-image/contact-pg-img.jpg") no-repeat bottom right fixed;
     background-color: #D0ECE7;
     height: 100%;
+    width: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -200,6 +201,7 @@ footer{
     margin-bottom: 5px;
     font-size: 25px;
     line-height: 25px;
+    background-color: #0B5345;
 }
 
 .form-group{
