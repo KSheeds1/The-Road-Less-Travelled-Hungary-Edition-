@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <title>The Road Less Travelled - Hungary Edition</title>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
 </head>
 <body>
     <header>
@@ -39,14 +41,14 @@
         </div>
         <div class="d-flex flex-row-reverse">
             <div class="col-sm-6">
-                <form>
+                <form onsubmit="return sendMail(this);">
                     <div class="form-group">
                         <h3><i class="fas fa-envelope"></i>Got a question?</h3>
                         <p class="align-content-center">Feel free to contact us, simply fill out the form and a member of our team will happily assist you!</p>
                         <label for="name" class="sr-only">Name</label>
                         <input type="text" class="form-control text-input" id="name" name="name" placeholder="Name" required>
-                        <label for="email" class="sr-only">Email Address</label>
-                        <input type="text" class="form-control text-input" id="email" name="email" placeholder="Email Address" required>
+                        <label for="emailaddress" class="sr-only">Email Address</label>
+                        <input type="text" class="form-control text-input" id="emailaddress" name="emailaddress" placeholder="Email Address" required>
                         <textarea name="message" class="form-control text-input" id="message" cols="30" rows="10" placeholder="Message" required></textarea>
                         <input type="submit" value="Send" class="send-button">
                     </div>
@@ -86,5 +88,7 @@
             </div>
         </div>
     </footer>
+    <script src="assets/js/sendEmail.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
 </body>
 </html>
