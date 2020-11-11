@@ -229,3 +229,34 @@ footer{
     background-color: #0B5345;
     color: #ffffff;
 }
+
+/*--------------------About Page*/
+#about-us{
+    background: url("../images/about-pg-image/about-pg-img.jpg") no-repeat bottom fixed right;
+    background-color: #D0ECE7;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;  
+    
+}
+
+.about{
+    background-color: rgba(60, 60, 60, 0.6);
+}
+
+.about h1{
+    color: #a11640;
+}
+
+#text{
+    color: #ffffff;
+    font-size: 25px;
+    line-height: 2.5rem;
+    position: relative;
+}
+
+.about p a{
+    color: #41bda4;
+}
