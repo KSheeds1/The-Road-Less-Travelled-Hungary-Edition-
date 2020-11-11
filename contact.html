@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
-    <title>Contact Us!</title>
+    <title>The Road Less Travelled - Hungary Edition</title>
 </head>
 <body>
     <header>
@@ -35,19 +35,20 @@
             <div class="col-sm-6">
                 <h1 class="title">The Road Less Travelled</h1>
                 <h2 class="title d-flex justify-content-end">Hungary Edition</h2>
-                <p>Got a question? Feel free to contact us, simply fill out the form and a member of our team will happily assist you!</p>
             </div>
         </div>
-        <div class="row">
+        <div class="d-flex flex-row-reverse">
             <div class="col-sm-6">
                 <form>
                     <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
-                        <label for="email"></label>
-                        <input type="text" class="form-control" id="email" name="email" required>
-                        <textarea name="message" class="form-control" id="message" cols="30" rows="10" required>Message</textarea>
-                        <input type="submit" value="send">
+                        <h3><i class="fas fa-envelope"></i>Got a question?</h3>
+                        <p class="align-content-center">Feel free to contact us, simply fill out the form and a member of our team will happily assist you!</p>
+                        <label for="name" class="sr-only">Name</label>
+                        <input type="text" class="form-control text-input" id="name" name="name" placeholder="Name" required>
+                        <label for="email" class="sr-only">Email Address</label>
+                        <input type="text" class="form-control text-input" id="email" name="email" placeholder="Email Address" required>
+                        <textarea name="message" class="form-control text-input" id="message" cols="30" rows="10" placeholder="Message" required></textarea>
+                        <input type="submit" value="Send" class="send-button">
                     </div>
                 </form>
             </div>
