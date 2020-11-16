@@ -1,13 +1,13 @@
 function initMaps() {
     initMap();
-    initializeBudapest(); 
+    initializeBudapest();
     initKeszthelyMap();
     initSiofokMap();
     initPecsMap();
     
 }
 
-
+//Initialisation of initmap located in index.html
 function initMap() {
     let map = new google.maps.Map(document.getElementById("mapDestinations"), {
         zoom: 7,
@@ -50,6 +50,7 @@ function initMap() {
     }
 }
 
+//Initialisation of map located on budapest.html
 let infowindow;
 
 function initializeBudapest() {
@@ -64,15 +65,21 @@ function initializeBudapest() {
     let request = {
         location: budapest,
         radius: '8046',
-        query: 'restaurant'
+        type: ['restaurant']
     };
+
+    /*let request1 = {
+        location: budapest,
+        radius: '8046',
+        type: ['tourist_attraction']
+    };*/
 
     service = new google.maps.places.PlacesService(mapBudapest);
     service.textSearch(request, callback);
-    
+
+
+
 }
-
-
 
 function callback(results, status) {
     console.log(results)
@@ -82,7 +89,7 @@ function callback(results, status) {
             createMarker(results[i]);
             console.log(results[i]);
         }
-       
+        mapBudapest.setCenter(results[0].geometry.location);
     }
 }
 
@@ -90,7 +97,7 @@ function createMarker(results){
     
     let marker = new google.maps.Marker({
         mapBudapest,
-        position: {lat: 47.4985097, lng: 19.0485491},
+        position: results.geometry.location,
     });
     marker.setMap(mapBudapest);
     google.maps.event.addListener(marker, "click", () => {
@@ -99,7 +106,7 @@ function createMarker(results){
     });
 }
 
-
+//Initialisation of map located on keszthely.html
 function initKeszthelyMap() {  
     let mapKeszthely = new google.maps.Map(document.getElementById("mapKeszthely"), {
         zoom: 12,
@@ -110,6 +117,7 @@ function initKeszthelyMap() {
     });
 }
 
+//Initialisation of map located on siofok.html
 function initSiofokMap() {  
     let mapSiofok = new google.maps.Map(document.getElementById("mapSiofok"), {
         zoom: 13,
@@ -120,6 +128,7 @@ function initSiofokMap() {
     });
 }
 
+//Initialisation of map located on pecs.html
 function initPecsMap() {  
     let mapPecs = new google.maps.Map(document.getElementById("mapPecs"), {
         zoom: 12,
