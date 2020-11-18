@@ -18,6 +18,7 @@ p{
     margin-top: 20px;
     margin-bottom: 20px;
     color: #640e27;
+    text-shadow: 2px 2px #0B5345;
 }
 /*--------------------------Nav*/
 .navbar-brand{
@@ -33,7 +34,7 @@ p{
     background-color: #0B5345; 
 }
 
-/*----------------------Carousel*/
+/*----------------------Carousels*/
 img{
     height: 800px;
     margin-left: auto;
@@ -61,7 +62,7 @@ img{
     font-family: "Rock Salt", sans-serif;
     font-weight: bold;
 }
-/*-------------------------Card*/
+/*-------------------------Cards*/
 .hungary-card{
     background-color: #D0ECE7;
     border: 1px solid #640e27;
@@ -86,7 +87,41 @@ img{
     color: #640E27;
 }
 
-/*-------------------------Map*/
+.budapest-card{
+    width: 25rem;
+    height: 10rem;
+    background-color: #640e27;
+    color: #D0ECE7;
+    border-radius: .3rem;
+    margin-right: 15px;
+}
+
+.card-title-budapest{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 5px;
+    text-decoration: underline;
+    font-family: "Coromorant Garamond", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.list-group-item-budapest{
+    background-color: #640e27;
+    color: #D0ECE7;
+    list-style-type: none;
+    font-family: "Coromorant Garamond", sans-serif;
+    font-size: 14px;
+    margin-top: 2px;
+    margin-left: 50px;
+}
+
+.fa-check{
+    color: #D0ECE7;
+    font-size: 16px;
+}
+
+/*-------------------------Maps*/
 #mapDestinations{
     min-height: 400px;
     margin-bottom: 20px;
@@ -111,13 +146,12 @@ img{
     min-height: 400px;
     margin-bottom: 20px;
 }
-/*---------------------Dropdown Menu*/
+
+/*---------------------Dropdown Menus*/
 .dropdown{
     position: relative;
     display: inline-block;
-    border: 1px solid #640E27;
     border-radius: .3rem;
-    width: 300px;
     font-family: "Coromorant Garamond", sans-serif;
 }
 
@@ -125,21 +159,15 @@ img{
     color: #808080;
 }
 
-.btn, .btn-lg{
-    width: 300px;
-}
-
 .btn, .btn-color{
     background-color: #640E27;
-    color: #fafafa;
+    color: #D0ECE7;
 }
-
 
 .btn, .btn-color .dropdown-toggle:active{
     background-color: #640E27;
     color: #fafafa;
 }
-
 
 .dropdown-menu{
     background-color: #D0ECE7;
@@ -161,8 +189,6 @@ img{
     background-color: #0B5345;
 
 }
-
-
 
 /*------------------Footer*/
 
@@ -189,8 +215,12 @@ footer{
     color: #fafafa;
 }
 
-/*-------------------------Contact-Page*/
+/*-------------------------Budapest-Page*/
+#budapest{
+    margin-bottom: 25px;
+}
 
+/*-------------------------Contact-Page*/
 #contact{
     background: url("../images/contact-pg-image/contact-pg-img.jpg") no-repeat bottom right fixed;
     background-color: #D0ECE7;
