@@ -2,7 +2,7 @@ function initMaps() {
     initMap();
     initializeBudapest();
     initializeKeszthely();
-    initSiofokMap();
+    initializeSiofok();
     initPecsMap();
     
 }
@@ -178,16 +178,63 @@ function createMarker(results) {
 }
 
 //Initialisation of map located on siofok.html
-function initSiofokMap() {  
-    let mapSiofok = new google.maps.Map(document.getElementById("mapSiofok"), {
+function initializeSiofok() {  
+    let siofok = new google.maps.LatLng(46.9019145, 18.0447842);
+    infowindow = new google.maps.InfoWindow();
+    mapSiofok = new google.maps.Map(document.getElementById("mapSiofok"), {
         zoom: 13,
-        center: { 
-           lat: 46.9019145,
-           lng: 18.0447842
-        }
+        center: siofok
     });
+
+    let request = {
+        location: siofok,
+        radius: '8046',
+        type: ['restaurant']
+    };
+
+    /*let request1 = {
+        location: siofok,
+        radius: '8046',
+        type: ['tourist_attraction']
+    };
+
+    let request2 = {
+        location: siofok,
+        radius: '8046',
+        type: ['department_store']
+    };
+
+    let request3 = {
+        location: siofok,
+        radius: '8046',
+        type: ['room']
+    };*/
+
+    service = new google.maps.places.PlacesService(mapSiofok);
+    service.textSearch(request, callback);
 }
 
+function callback(results, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+        for (let i = 0; i < results.length; i++) {
+            let place = results[i];
+            createMarker(results[i]);
+        }
+        mapSiofok.setCenter(results[0].geometry.location);
+    }
+}
+
+function createMarker(results) {
+    let marker = new google.maps.Marker({
+        mapSiofok,
+        position: results.geometry.location,
+    });
+    marker.setMap(mapSiofok);
+    google.maps.event.addListener(marker, "click", () => {
+        infowindow.setContent(results.name);
+        infowindow.open(mapSiofok)
+    });
+}
 //Initialisation of map located on pecs.html
 function initPecsMap() {  
     let mapPecs = new google.maps.Map(document.getElementById("mapPecs"), {
