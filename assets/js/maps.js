@@ -3,7 +3,7 @@ function initMaps() {
     initializeBudapest();
     initializeKeszthely();
     initializeSiofok();
-    initPecsMap();
+    initializePecs();
     
 }
 
@@ -235,14 +235,62 @@ function createMarker(results) {
         infowindow.open(mapSiofok)
     });
 }
+
 //Initialisation of map located on pecs.html
-function initPecsMap() {  
-    let mapPecs = new google.maps.Map(document.getElementById("mapPecs"), {
-        zoom: 12,
-        center: { 
-           lat: 46.0751089,
-           lng: 18.2261525
-        }
+function initializePecs() {  
+    let pecs = new google.maps.LatLng(46.0751089, 18.2261525);
+    infowindow = new google.maps.InfoWindow();
+    mapPecs = new google.maps.Map(document.getElementById("mapPecs"), {
+        zoom: 14,
+        center: pecs
     });
+
+       let request = {
+        location: pecs,
+        radius: '8046',
+        type: ['restaurant']
+    };
+
+    /*let request1 = {
+        location: pecs,
+        radius: '8046',
+        type: ['tourist_attraction']
+    };
+
+    let request2 = {
+        location: pecs,
+        radius: '8046',
+        type: ['department_store']
+    };
+
+    let request3 = {
+        location: pecs,
+        radius: '8046',
+        type: ['room']
+    };*/
+
+    service = new google.maps.places.PlacesService(mapPecs);
+    service.textSearch(request, callback);
 }
 
+function callback(results, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+        for (let i = 0; i < results.length; i++) {
+            let place = results[i];
+            createMarker(results[i]);
+        }
+        mapPecs.setCenter(results[0].geometry.location);
+    }
+}
+
+function createMarker(results) {
+    let marker = new google.maps.Marker({
+        mapPecs,
+        position: results.geometry.location,
+    });
+    marker.setMap(mapPecs);
+    google.maps.event.addListener(marker, "click", () => {
+        infowindow.setContent(results.name);
+        infowindow.open(mapPecs);
+    });
+}
