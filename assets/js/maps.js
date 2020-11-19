@@ -1,7 +1,7 @@
 function initMaps() {
     initMap();
     initializeBudapest();
-    initKeszthelyMap();
+    initializeKeszthely();
     initSiofokMap();
     initPecsMap();
     
@@ -62,20 +62,32 @@ function initializeBudapest() {
         center: budapest
     });
 
-    let request = {
+    /*let request = {
         location: budapest,
         radius: '8046',
         type: ['restaurant']
-    };
+    };*/
 
-    /*let request1 = {
+    let request1 = {
         location: budapest,
         radius: '8046',
         type: ['tourist_attraction']
-    };*/
+    };
+
+    let request2 = {
+        location: budapest,
+        radius: '8046',
+        type: ['department_store']
+    };
+
+    let request3 = {
+        location: budapest,
+        radius: '8046',
+        type: ['room']
+    };
 
     service = new google.maps.places.PlacesService(mapBudapest);
-    service.textSearch(request, callback);
+    service.textSearch(request1, callback);
 
 
 
@@ -107,13 +119,61 @@ function createMarker(results){
 }
 
 //Initialisation of map located on keszthely.html
-function initKeszthelyMap() {  
-    let mapKeszthely = new google.maps.Map(document.getElementById("mapKeszthely"), {
-        zoom: 12,
-        center: { 
-            lat: 46.7498531,
-            lng: 17.1719147
+function initializeKeszthely() {  
+    let keszthely = new google.maps.LatLng(46.7498531, 17.1719147);
+    infowindow = new google.maps.InfoWindow();
+    mapKeszthely = new google.maps.Map(document.getElementById("mapKeszthely"), {
+        zoom: 14,
+        center: keszthely
+    });
+
+    let request = {
+        location: keszthely,
+        radius: '8046',
+        type: ['restaurant']
+    };
+
+    /*let request1 = {
+        location: keszthely,
+        radius: '8046',
+        type: ['tourist_attraction']
+    };
+
+    let request2 = {
+        location: keszthely,
+        radius: '8046',
+        type: ['department_store']
+    };
+
+    let request3 = {
+        location: keszthely,
+        radius: '8046',
+        type: ['room']
+    };*/
+
+    service = new google.maps.places.PlacesService(mapKeszthely);
+    service.textSearch(request, callback);
+}
+
+function callback(results, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+        for (let i = 0; i <results.length; i++) {
+            let place = results[i];
+            createMarker(results[i]);
         }
+        mapKeszthely.setCenter(results[0].geometry.location);
+    }
+}
+
+function createMarker(results) {
+    let marker = new google.maps.Marker({
+        mapKeszthely,
+        position: results.geometry.location,
+    });
+    marker.setMap(mapKeszthely);
+    google.maps.event.addListener(marker, "click", () => {
+        infowindow.setContent(results.name);
+        infowindow.open(mapKeszthely)
     });
 }
 
