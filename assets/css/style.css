@@ -65,20 +65,21 @@ img{
 /*-------------------------Cards*/
 .hungary-card{
     background-color: #D0ECE7;
-    border: 1px solid #640e27;
+    border: none;
 }
 
-.title{
+.card-title{
     font-family: "Rock Salt", sans-serif;
+    color: #640e27;
 }
 
-.card-img-top{
-    width: 75%;
-    height: 50%;
+.card-img-hungary{
+    width: 100%;
+    height: 100%;
 }
 
 .card-body{
-    box-shadow: 10px 10px #888888;
+    width: max-content;
 }
 
 .list-group .list-group-item{
@@ -125,26 +126,32 @@ img{
 #mapDestinations{
     min-height: 400px;
     margin-bottom: 20px;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.342);
+    border: 1px solid #0B5345;
 }
 
 #mapBudapest{
     min-height: 400px;
     margin-bottom: 20px;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.342);
 }
 
 #mapKeszthely{
     min-height: 400px;
     margin-bottom: 20px;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.342);
 }
 
 #mapSiofok{
    min-height: 400px;
-   margin-bottom: 20px; 
+   margin-bottom: 20px;
+   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.342); 
 }
 
 #mapPecs{
     min-height: 400px;
     margin-bottom: 20px;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.342);
 }
 
 /*---------------------Dropdown Menus*/
