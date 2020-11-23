@@ -55,12 +55,17 @@ img{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-decoration-line: underline;
+    bottom: 15%;
 }
 
-.carousel-caption{
+.carousel-caption {
+    position: absolute;
+    font-size: 60px;
     font-family: "Rock Salt", sans-serif;
-    font-weight: bold;
+    right: 15%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 /*-------------------------Cards*/
 .hungary-card{
@@ -152,6 +157,31 @@ img{
     min-height: 400px;
     margin-bottom: 20px;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.342);
+}
+
+/*---------------------Tooltip*/
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background: black;
+    color: #ffffff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
 }
 
 /*---------------------Dropdown Menus*/
