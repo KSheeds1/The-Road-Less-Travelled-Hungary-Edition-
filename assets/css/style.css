@@ -93,16 +93,15 @@ img{
     color: #640E27;
 }
 
-.budapest-card{
-    width: 25rem;
-    height: 10rem;
+.info-card{
+    width: 20rem;
     background-color: #640e27;
     color: #D0ECE7;
     border-radius: .3rem;
     margin-right: 15px;
 }
 
-.card-title-budapest{
+.card-title-info{
     margin-top: 20px;
     margin-left: 20px;
     margin-bottom: 5px;
@@ -112,7 +111,7 @@ img{
     font-weight: bold;
 }
 
-.list-group-item-budapest{
+.list-group-item-info {
     background-color: #640e27;
     color: #D0ECE7;
     list-style-type: none;
