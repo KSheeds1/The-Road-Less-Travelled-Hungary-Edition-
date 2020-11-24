@@ -1,11 +1,14 @@
+let currentMap;
+
 function initMaps() {
     initMap();
     initializeBudapest();
     initializeKeszthely();
     initializeSiofok();
     initializePecs();
-    
 }
+
+
 
 //Initialisation of initmap located in index.html
 function initMap() {
@@ -32,8 +35,7 @@ function initMap() {
         { name: "Siofok", lat: 46.9019145, lng: 18.0447842, url: "siofok.html" },
         { name: "Keszthely", lat: 46.7498531, lng: 17.1719147, url: "keszthely.html" }
     ];
-  
-   
+      
     for (let i = 0; i < markerLocations.length; i++) {
         let marker = new google.maps.Marker({
             position: { lat: markerLocations[i].lat, lng: markerLocations[i].lng},
@@ -54,7 +56,6 @@ function initMap() {
 let infowindow;
 
 function initializeBudapest() {
-    console.log("BudapestMap")
     let budapest = new google.maps.LatLng(47.4985097, 19.0485491);
     infowindow = new google.maps.InfoWindow();
     mapBudapest = new google.maps.Map(document.getElementById("mapBudapest"), {
@@ -62,13 +63,15 @@ function initializeBudapest() {
         center: budapest
     });
 
-    /*let request = {
+    currentMap = mapBudapest;
+
+    let request = {
         location: budapest,
         radius: '8046',
         type: ['restaurant']
-    };*/
+    };
 
-    let request1 = {
+    /*let request1 = {
         location: budapest,
         radius: '8046',
         type: ['tourist_attraction']
@@ -84,48 +87,32 @@ function initializeBudapest() {
         location: budapest,
         radius: '8046',
         type: ['room']
-    };
+    };*/
 
     service = new google.maps.places.PlacesService(mapBudapest);
-    service.textSearch(request1, callback);
+    service.textSearch(request, callback);
 
-
-
-}
-
-function callback(results, status) {
-    console.log(results)
-    if (status == google.maps.places.PlacesServiceStatus.OK) {
-        for (let i = 0; i < results.length; i++) {
-            let place = results[i];
-            createMarker(results[i]);
-            console.log(results[i]);
+    function callback(results, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            for (let i = 0; i < results.length; i++) {
+                let place = results[i];
+                createMarker(results[i]);
+            }
+            mapBudapest.setCenter(results[0].geometry.location);
         }
-        mapBudapest.setCenter(results[0].geometry.location);
     }
 }
 
-function createMarker(results){
-    
-    let marker = new google.maps.Marker({
-        mapBudapest,
-        position: results.geometry.location,
-    });
-    marker.setMap(mapBudapest);
-    google.maps.event.addListener(marker, "click", () => {
-        infowindow.setContent(results.name);
-        infowindow.open(mapBudapest);
-    });
-}
-
 //Initialisation of map located on keszthely.html
-function initializeKeszthely() {  
+function initializeKeszthely() { 
     let keszthely = new google.maps.LatLng(46.7498531, 17.1719147);
     infowindow = new google.maps.InfoWindow();
     mapKeszthely = new google.maps.Map(document.getElementById("mapKeszthely"), {
         zoom: 14,
         center: keszthely
     });
+
+    currentMap = mapKeszthely;
 
     let request = {
         location: keszthely,
@@ -153,29 +140,17 @@ function initializeKeszthely() {
 
     service = new google.maps.places.PlacesService(mapKeszthely);
     service.textSearch(request, callback);
-}
 
-function callback(results, status) {
-    if (status == google.maps.places.PlacesServiceStatus.OK) {
-        for (let i = 0; i <results.length; i++) {
-            let place = results[i];
-            createMarker(results[i]);
+    function callback(results, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            for (let i = 0; i < results.length; i++) {
+                let place = results[i];
+                createMarker(results[i]);
+            }
+            mapKeszthely.setCenter(results[0].geometry.location);
         }
-        mapKeszthely.setCenter(results[0].geometry.location);
-    }
-}
-
-function createMarker(results) {
-    let marker = new google.maps.Marker({
-        mapKeszthely,
-        position: results.geometry.location,
-    });
-    marker.setMap(mapKeszthely);
-    google.maps.event.addListener(marker, "click", () => {
-        infowindow.setContent(results.name);
-        infowindow.open(mapKeszthely)
-    });
-}
+    } 
+} 
 
 //Initialisation of map located on siofok.html
 function initializeSiofok() {  
@@ -185,6 +160,8 @@ function initializeSiofok() {
         zoom: 13,
         center: siofok
     });
+
+    currentMap = mapSiofok;
 
     let request = {
         location: siofok,
@@ -212,28 +189,16 @@ function initializeSiofok() {
 
     service = new google.maps.places.PlacesService(mapSiofok);
     service.textSearch(request, callback);
-}
 
-function callback(results, status) {
-    if (status == google.maps.places.PlacesServiceStatus.OK) {
-        for (let i = 0; i < results.length; i++) {
-            let place = results[i];
-            createMarker(results[i]);
+    function callback(results, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            for (let i = 0; i < results.length; i++) {
+                let place = results[i];
+                createMarker(results[i]);
+            }
+            mapSiofok.setCenter(results[0].geometry.location);
         }
-        mapSiofok.setCenter(results[0].geometry.location);
     }
-}
-
-function createMarker(results) {
-    let marker = new google.maps.Marker({
-        mapSiofok,
-        position: results.geometry.location,
-    });
-    marker.setMap(mapSiofok);
-    google.maps.event.addListener(marker, "click", () => {
-        infowindow.setContent(results.name);
-        infowindow.open(mapSiofok)
-    });
 }
 
 //Initialisation of map located on pecs.html
@@ -245,7 +210,9 @@ function initializePecs() {
         center: pecs
     });
 
-       let request = {
+    currentMap = mapPecs;
+
+    let request = {
         location: pecs,
         radius: '8046',
         type: ['restaurant']
@@ -271,26 +238,27 @@ function initializePecs() {
 
     service = new google.maps.places.PlacesService(mapPecs);
     service.textSearch(request, callback);
-}
 
-function callback(results, status) {
-    if (status == google.maps.places.PlacesServiceStatus.OK) {
-        for (let i = 0; i < results.length; i++) {
-            let place = results[i];
-            createMarker(results[i]);
+    function callback(results, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            for (let i = 0; i < results.length; i++) {
+                let place = results[i];
+                createMarker(results[i]);
+            }
+            mapPecs.setCenter(results[0].geometry.location);
         }
-        mapPecs.setCenter(results[0].geometry.location);
     }
 }
 
+
 function createMarker(results) {
     let marker = new google.maps.Marker({
-        mapPecs,
+        currentMap,
         position: results.geometry.location,
     });
-    marker.setMap(mapPecs);
+    marker.setMap(currentMap);
     google.maps.event.addListener(marker, "click", () => {
         infowindow.setContent(results.name);
-        infowindow.open(mapPecs);
+        infowindow.open(currentMap);
     });
 }
