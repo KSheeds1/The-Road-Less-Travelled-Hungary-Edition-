@@ -95,6 +95,7 @@ img{
 
 .info-card{
     width: 20rem;
+    height: max-content;
     background-color: #640e27;
     color: #D0ECE7;
     border-radius: .3rem;
@@ -118,7 +119,6 @@ img{
     font-family: "Coromorant Garamond", sans-serif;
     font-size: 14px;
     margin-top: 2px;
-    margin-left: 50px;
 }
 
 .fa-check{
@@ -138,6 +138,7 @@ img{
     min-height: 400px;
     margin-bottom: 20px;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.342);
+    position: relative;
 }
 
 #mapKeszthely{
