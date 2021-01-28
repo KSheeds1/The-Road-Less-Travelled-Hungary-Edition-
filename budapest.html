@@ -30,9 +30,53 @@
                 </ul>
             </div>
         </nav>
+        <h1 class="title text-center container-fluid">Budapest</h1>
+        <h2 class="content text-center container-fluid">Explore the map below to check out everything from bars, restaurants, accommodation and must see attractions. 
+            Simply choose which ammenity you'd like to research and the maps will provide you with the locations of our top picks! We've done the leg work, so you don't have to!</h2>
     </header>
+    <section class="container-fluid budapest-section">
+        <div class="row justify-content-center">     
+            <div class="col-xs-6 col-md-9">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                    <label class="form-check-label" for="inlineCheckbox1">1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                    <label class="form-check-label" for="inlineCheckbox2">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
+                    <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+                </div>
+                <div id="mapBudapest"></div>
+            </div>
+        </div>
+    </section>
+    <section class="container-fluid">
+        <div class="row">
+            <div class="card-sm-6 col-md-2 info-card">                
+                <div class="info-card">
+                    <h5 class="card-title-info">The perfect getaway for a..</h5>
+                    <ul class="list-group-info list-group-flush">
+                        <li class="list-group-item-info"><i class="fas fa-check"></i>Weekend city-break</li>
+                        <li class="list-group-item-info"><i class="fas fa-check"></i>Shopping excursion</li>
+                        <li class="list-group-item-info"><i class="fas fa-check"></i>Couples holiday</li>
+                        <li class="list-group-item-info"><i class="fas fa-check"></i>Stags & Hens</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-9">
+                <aside id="budapest">
+                    <p>The capital city of Hungary, situated on and bisected by the river Danube in central-north Hungary. Budapest has a little something for everyone, whether you want to explore the castle district and soak in the history,
+                        take a spa day at Széchenyl baths and relax, or party the night away in the ruin bars, you'll find it in Buda or Pest! Have a look at the photos below to a sneak peak at the sites awaiting you in Budapest! 
+                    </p>
+                </aside>
+            </div>
+        </div>
+    </section>    
     <section class="budapestCarousel">
-        <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+        <div id="carouselIndicators" class="carousel slide carousel-fade" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselIndicators" data-slide-to="1"></li>
@@ -42,25 +86,25 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="assets/images/budapest-images/budapest-img-1.jpg" alt="First Slide">
+                    <img class="d-block w-75" src="assets/images/budapest-images/budapest-img-1.jpg" alt="First Slide">
                     <div class="carousel-caption">
                         <h3>Budapest</h3>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="assets/images/budapest-images/budapest-img-2.jpg" alt="Second slide">
+                    <img class="d-block w-75" src="assets/images/budapest-images/budapest-img-2.jpg" alt="Second slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="assets/images/budapest-images/budapest-img-3.jpg" alt="Third slide">
+                    <img class="d-block w-75" src="assets/images/budapest-images/budapest-img-3.jpg" alt="Third slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="assets/images/budapest-images/budapest-img-4.jpg" alt="Fourth slide">
+                    <img class="d-block w-75" src="assets/images/budapest-images/budapest-img-4.jpg" alt="Fourth slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="assets/images/budapest-images/budapest-img-5.jpg" alt="Fifth slide">
+                    <img class="d-block w-75" src="assets/images/budapest-images/budapest-img-5.jpg" alt="Fifth slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="assets/images/budapest-images/budapest-img-6.jpg" alt="Sixth slide">
+                    <img class="d-block w-75" src="assets/images/budapest-images/budapest-img-6.jpg" alt="Sixth slide">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
@@ -71,55 +115,6 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
-        </div>
-    </section>
-    <section class="container-fluid" id="budapest">
-        <div class="row">
-            <div class="col-sm-12 title">
-                <h1>Budapest</h1>
-            </div>
-        </div>
-        <div class="row">          
-            <div class="col-sm-8 mr-auto">
-                <p class="content">The capital city of Hungary, situated on and bisected by the river Danube in central-north Hungary. Budapest has a little something for everyone, whether you want to explore the castle district and soak in the history,
-                    take a spa day at Széchenyl baths and relax, or party the night away in the ruin bars, you'll find it in Buda or Pest! Explore the map below to check out everything from bars, restaurants, accommodation and must see attractions. 
-                    Simply choose which ammenity you'd like to research and the maps will provide you with the locations of our top picks! We've done the leg work, so you don't have to! 
-                </p>
-            </div>
-            <div class="card-xs-3 info-card ml-auto">                
-                <div class="col-xs-3">
-                    <div class="info-card">
-                        <h5 class="card-title-info">The perfect getaway for a..</h5>
-                        <ul class="list-group-info list-group-flush">
-                            <li class="list-group-item-info"><i class="fas fa-check"></i>Weekend city-break</li>
-                            <li class="list-group-item-info"><i class="fas fa-check"></i>Shopping excursion</li>
-                            <li class="list-group-item-info"><i class="fas fa-check"></i>Couples holiday</li>
-                            <li class="list-group-item-info"><i class="fas fa-check"></i>Stags & Hens</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>    
-        </div>
-    </section>
-    <section class="container-fluid budapest-section">
-        <div class="row">
-            <div class="col-xs-3 col-md-3">
-                <div class="dropdown">
-                    <button class="btn btn-color btn-lg dropdown-toggle" type="button" role="menu" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Check out the..
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Accommodation</a>
-                    <a class="dropdown-item" href="#">Attractions</a>
-                    <a class="dropdown-item" href="#">Nightlife</a>
-                    <a class="dropdown-item" href="#">Restaurants</a>
-                    <a class="dropdown-item" href="#">Shopping</a>
-                    </div>
-                </div>
-            </div>        
-            <div class="col-xs-9 col-md-9">
-                <div id="mapBudapest"></div>
-            </div>
         </div>
     </section>
     <footer class="container-fluid">
