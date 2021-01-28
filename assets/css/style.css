@@ -2,41 +2,70 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap');
 /*--------------------------General*/
 body{
-    background-color: #D0ECE7;
+    background-color: #ffffff;
+    margin: auto;
 }
 
 .general-sub{
     font-family: "Rock Salt", sans-serif;
+    font-weight: 600;
 }
 
 p{
     font-family: "Cormorant Garamond", sans-serif;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .title{
     margin-top: 20px;
     margin-bottom: 20px;
     color: #640e27;
-    text-shadow: 2px 2px #0B5345;
 }
 /*--------------------------Nav*/
+.navbar {
+    margin-bottom: 15px;
+}
 .navbar-brand{
     font-family: "Rock Salt", sans-serif;
-    font-size: 14px;
+    font-size: 16px;
 }
 
-.nav-item{
+.navbar-dark .navbar-brand{
+    color: #640E27;
+    font-weight: 600;
+    
+}
+
+.navbar-dark .navbar-nav .nav-link{
     font-family: "Coromorant Garamond", sans-serif;
+    color: #640E27;
+    font-weight: 600;
 }
 
 .bg-color{
-    background-color: #0B5345; 
+    background: linear-gradient(to  bottom, #0b5345 0%, #ffffff 93%); 
 }
 
+/*----------------------Main head/Subheading*/
+.main-heading {
+    font-family: "Cormorant Garamond", sans-serif;
+    font-size: 40px;
+    margin-top: 20px;
+    padding-top: 5px;
+}
+
+.main-subheading{
+    font-family: "Cormorant Garamond", sans-serif;
+    font-size: 30px;
+    margin: 15px;
+    padding-top: 5px;
+    margin-bottom: 15px;
+
+}
 /*----------------------Carousels*/
 img{
-    height: 800px;
+    height: 500px;
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -69,7 +98,7 @@ img{
 }
 /*-------------------------Cards*/
 .hungary-card{
-    background-color: #D0ECE7;
+    background-color: #ffffff;
     border: none;
 }
 
@@ -88,7 +117,7 @@ img{
 }
 
 .list-group .list-group-item{
-    background-color: #D0ECE7;
+    background-color: #ffffff;
     font-family: "Coromorant Garamond", sans-serif;
     color: #640E27;
 }
@@ -159,31 +188,6 @@ img{
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.342);
 }
 
-/*---------------------Tooltip*/
-.tooltip {
-    position: relative;
-    display: inline-block;
-}
-
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background: black;
-    color: #ffffff;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-    position: absolute;
-    z-index: 1;
-    bottom: 100%;
-    left: 50%;
-    margin-left: -60px;
-}
-
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-}
-
 /*---------------------Dropdown Menus*/
 .dropdown{
     position: relative;
@@ -230,8 +234,8 @@ img{
 /*------------------Footer*/
 
 footer{
-    background-color: #0B5345;
-    color: #fafafa;
+    background: linear-gradient(to top, #0b5345 0%, #ffffff 93%);
+    color: #640e27;
     margin: 0;
     min-height: 100px;   
     padding: 20px; 
