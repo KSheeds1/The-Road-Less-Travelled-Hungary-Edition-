@@ -126,8 +126,9 @@ img{
 }
 
 .info-card{
-    width: 20rem;
-    height: max-content;
+    width: 13rem;
+    margin-left: 2rem;
+    height: 19rem;
     background-color: #640e27;
     color: #D0ECE7;
     border-radius: .3rem;
@@ -135,12 +136,9 @@ img{
 }
 
 .card-title-info{
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-bottom: 5px;
-    text-decoration: underline;
+    padding-top: 2rem;
     font-family: "Roboto", sans-serif;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: bold;
 }
 
@@ -149,8 +147,8 @@ img{
     color: #D0ECE7;
     list-style-type: none;
     font-family: "Roboto", sans-serif;
-    font-size: 14px;
-    margin-top: 2px;
+    font-size: 12px;
+    margin-top: 1rem;
 }
 
 .fa-check{
@@ -168,7 +166,7 @@ img{
 
 #mapBudapest{
     min-height: 400px;
-    margin-bottom: 20px;
+    margin-bottom: 5rem;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.342);
     position: relative;
 }
@@ -262,6 +260,27 @@ footer{
 /*-------------------------Budapest-Page*/
 #budapest{
     margin-bottom: 25px;
+}
+
+.content {
+    font-family: "Roboto", sans-serif;
+    font-size: 25px;
+    font-weight: lighter;
+    padding-top: 5px;
+    margin-bottom: 15px;
+}
+aside {
+    width: 70%;
+    padding-right: .5rem;
+    padding-left: .7rem;
+    margin-left: .5rem;
+    float: right;
+    box-shadow: inset 6px 0 3px -5px #640E27;
+    font-style: italic;
+}
+
+aside p {
+    font-size: 25px;
 }
 
 /*-------------------------Contact-Page*/
