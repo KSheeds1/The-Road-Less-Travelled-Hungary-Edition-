@@ -23,10 +23,6 @@ p{
     color: #640e27;
 }
 
-.fa-check {
-    color: #640e27;
-    padding-left: 2rem;
-}
 /*--------------------------Nav*/
 .navbar-brand{
     font-family: "Rock Salt", sans-serif;
@@ -71,11 +67,6 @@ p{
 
 }
 /*----------------------Carousels*/
-.budapestCarousel {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
 img{
     height: 500px;
     margin-top: 10px;
@@ -108,6 +99,16 @@ img{
     z-index: 10;
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+.keszthelyCarousel {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.budapestCarousel {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 /*-------------------------Cards*/
 .hungary-card{
@@ -267,6 +268,23 @@ footer{
     padding-top: 5px;
     margin-bottom: 15px;
 }
+
+/*-------------------------Keszthely-Page*/
+.keszthely-section {
+    margin-top: 4.5rem;
+}
+
+#keszthely {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+
+
+/*-------------------------Pecs-Page*/
+/*-------------------------Siofok-Page*/
+
+/*--------------------------Asides*/
 aside {
     width: 70%;
     padding-right: .5rem;
