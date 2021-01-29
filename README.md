@@ -79,27 +79,98 @@ The required content for the website is:
 # Features
 ## Existing Features:
 
-**Google Maps API**
+**Navigation Bar:**
 
-**Bootstrap Carousel API**
+* Fixed in the default position, allowing users to quickly identify the different sections of the site. On mobile screen widths, these sections are available in a collapsible menu to provide a cleaner layout on smaller screens. 
 
-**Contact form via EmailJS API** 
+**Google Maps API:**
+
+* To provide users with a more interactive experience, each location HTML page includes a map of the destination where users can view all amenities available in the area. 
+With user interaction and engagement in mind, a site visitor can simply toggle between the amenities on the map using the radio buttons placed above the map. 
+
+**Bootstrap Carousel API:**
+
+* An image carousel has been added to the landing page and each destination page, to draw site users in, presenting images of the destinations advertised on the site will encourage further interaction and exploration of the site. 
+
+**Contact form via EmailJS API:** 
+
+* With the integration of EMAILJS API, users can get in touch with The Road Less Travelled team, with any questions they may have by simply filling out the form found on the contact page, improving the overall user experience and a custom service and satisfaction.
+
+**Social media links:**
+
+* Links to The Road Less Travelled social media accounts will be provided in the footer of the site. This allows for further engagement with current site visitors , as well as providing an opportunity to endorse and advertise the website to a diverse demographic of users across several platforms, in the aim of increase web traffic. 
 
 
-## Features left to implement
+## Features left to implement:
+
+For future releases, the aim is to expand the site to include other countries to offer an even larger variety of holiday destinations located in Eastern Europe. Finally categorising this content as "The Eastern Europe Edition". This would see the implementation of new features such as:
+
+**Filter option for destinations:**
+
+* The developer intends to implement a filter option throughout the site, allowing the users to search destinations by price, locations, seasonal getaways, and package holidays. 
+
 **Find your dream location quiz:** 
 
-Users can answer a series of questions that provide multiple choice answers. Depending on the answers selected by the user, the quiz will generate their ideal holiday destination and redirect them to the locations page.  
+* Users can answer a series of questions that provide multiple choice answers. Depending on the answers selected by the user, the quiz will generate their ideal holiday destination and redirect them to the locations page.  
 
-**Sky Scanner API:**
+**The inclusion of relevant APIs:**
 
-The integration of the Sky Scanner API into the site is contingent on the reopening of international borders and the decrease of travel bans globally. Given the prevalence of COVID-19 globally and it's effects on international travel, the site owner has decided to delay the integration of the Sky Scanner API, until such a time, that international travel is less restricted and that the inclusion of the API will provide additional value for the user. Until then, it's integration has been tabled for a future release.
+* The integration of a variety of APIs accommodation such as Trivago and Booking.com, currency conversion, as well as transport, including Flexibus and SkyScanner. The integration of the Sky Scanner API into the site is contingent on the reopening of international borders and the decrease of travel bans globally. 
+Given the prevalence of COVID-19 globally and it's effects on international travel, the site owner has decided to delay the integration of the Sky Scanner API, until such a time, that international travel is less restricted and that the inclusion of the API will provide additional value for the user. Until then, it's integration has been tabled for a future release.
+These APIs would provide the users with the ability to book all elements of their trip from the one site, while also allowing them to research the location and its amenities at the same time. 
+
+
+**Implementation of live chat software:**
+
+* To provide website users with an alternative method of communication with The Road Less Travelled team in real time, via chat windows. The implementation of live chat software will provide a quicker means of communication with users compared to email, whilst improving user interaction and satisfaction. 
+The owner goal is to be able to provide users with any additional information they may need as quickly as possible to maintain visitor engagement with the site. The addition of live chat software will help achieve this goal. 
+
 
 # Technologies Used 
 
+**JavaScript:**
+
+* This site uses JavaScript to implement interactive features such as the Google Maps API for the integration of custom maps and EmailJS API to provide a functional email service with sire users. 
+
+**HTML5:**
+
+* The site uses HTML5 Doctype to create all HTML files. 
+
+**CSS3:** 
+
+* This site uses CSS3 to provide styling to all HTML files. 
+
+**Bootstrap v4.5:**
+
+* The site uses Bootstrap to provide components such as grid-layouts, forms, image carousels, as well as classes to further style elements of the site.
+
+**JavaScript Plugin:**
+
+* This plugin is used in conjunction with Bootstrap, a necessary component for Bootstrap Plugins. 
+
+**Popper:**
+
+* Is used in conjunction with Bootstrap, it is used in this project to provide tooltips specifically for the contact form. 
+
+**Autoprefixer:**
+
+* The 'style.css' file of this project was parsed and has had vendor prefixes added to allow animations, grids, transitions, etc. to function across multiple browsers.
+
+**HTML Validator:**
+
+* All .html files from this project were validated and deemed error-free by the HTML Validator. 
+
+**CSS Validator:**
+
+* The 'style.css' file of this project was validated and deemed error-free by the CSS validator.
+
+**JSHint v2.12.0:**
+
+* All JavaScript files from this project were validated and deemed error-free by JSHint.
+
 # Testing
 
-## Bugs discovered and resolved during development
+## Bugs discovered and resolved during development:
 **Markers as links** 
 
 In an effort to create a more interactive website, the developer aimed to create a map where the markers could be used to redirect the user to other pages of the site, about different locations in Hungary, depending on which marker was clicked.
@@ -134,9 +205,42 @@ This finally cleared the status code 400 and functionality was established.
 
 # Deployment
 
-# Credits
-## Content
+This site is hosted by GitHub Pages, the publishing source chosen was the 'master' branch. To choose a publishing source and deploy the site:
 
-## Media 
+* Navigate to the site's **repository**
+
+* Under the repository name, click **Settings**
+
+* Under **GitHub Pages** use the **branch drop-down menu** and select **'Master'** as the publishing source.
+
+* Click **Save**
+
+To run **locally**, you can clone this repository, or pull the code from this GitHub repository:
+
+* Navigate to the main page of the repository
+
+* Click the **green code button** 
+
+* To clone the repository using **HTTPS**, under **'Clone with HTTPS'**, click the **clipboard** symbol
+
+* Open Git Bash
+
+* Change the current working directory to the location where you want the cloned directory
+
+* Type **git clone** and paste in the copied URL
+
+`$ git clone https://github.com/KSheeds1.github.io/The-Road-Less-Travelled-Hungary-Edition-/` 
+
+* Press **Enter** to create your local clone
+
+
+# Credits
+## Content:
+
+All content found on this site was written by the developer. 
+
+## Media:
+
+All images found on this site are my own personal property.
 
 ## Acknowledgements 
