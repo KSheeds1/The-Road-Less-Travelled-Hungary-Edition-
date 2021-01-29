@@ -23,6 +23,32 @@ p{
     color: #640e27;
 }
 
+.content {
+    font-family: "Roboto", sans-serif;
+    font-size: 25px;
+    font-weight: lighter;
+    padding-top: 5px;
+    margin-bottom: 15px;
+}
+
+.main-heading {
+    font-family: "Roboto", sans-serif;
+    font-size: 35px;
+    font-weight: lighter;
+    margin-top: 20px;
+    padding-top: 5px;
+    color: #640E27;
+}
+
+.main-subheading{
+    font-family: "Roboto", sans-serif;
+    font-size: 25px;
+    font-weight: lighter;
+    margin: 15px;
+    padding-top: 5px;
+    margin-bottom: 15px;
+
+}
 /*--------------------------Nav*/
 .navbar-brand{
     font-family: "Rock Salt", sans-serif;
@@ -47,25 +73,6 @@ p{
     background: linear-gradient(to  bottom, #0b5345 0%, #ffffff 93%); 
 }
 
-/*----------------------Main head/Subheading*/
-.main-heading {
-    font-family: "Roboto", sans-serif;
-    font-size: 35px;
-    font-weight: lighter;
-    margin-top: 20px;
-    padding-top: 5px;
-    color: #640E27;
-}
-
-.main-subheading{
-    font-family: "Roboto", sans-serif;
-    font-size: 25px;
-    font-weight: lighter;
-    margin: 15px;
-    padding-top: 5px;
-    margin-bottom: 15px;
-
-}
 /*----------------------Carousels*/
 img{
     height: 500px;
@@ -101,12 +108,27 @@ img{
     padding-bottom: 20px;
 }
 
+.imageCarousel {
+    margin-top: 3rem;
+    margin-bottom: 3rem;  
+}
+
 .keszthelyCarousel {
     margin-top: 3rem;
     margin-bottom: 3rem;
 }
 
 .budapestCarousel {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.pecsCarousel {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.siofokCarousel {
     margin-top: 3rem;
     margin-bottom: 3rem;
 }
@@ -261,14 +283,6 @@ footer{
    margin-top: 4.5rem; 
 }
 
-.content {
-    font-family: "Roboto", sans-serif;
-    font-size: 25px;
-    font-weight: lighter;
-    padding-top: 5px;
-    margin-bottom: 15px;
-}
-
 /*-------------------------Keszthely-Page*/
 .keszthely-section {
     margin-top: 4.5rem;
@@ -279,10 +293,26 @@ footer{
     margin-bottom: 3rem;
 }
 
-
-
 /*-------------------------Pecs-Page*/
+#map-pecs {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+#pecs {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
 /*-------------------------Siofok-Page*/
+#map-siofok {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+#siofok {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
 
 /*--------------------------Asides*/
 aside {
