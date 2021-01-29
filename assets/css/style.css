@@ -22,6 +22,11 @@ p{
     margin-bottom: 20px;
     color: #640e27;
 }
+
+.fa-check {
+    color: #640e27;
+    padding-left: 2rem;
+}
 /*--------------------------Nav*/
 .navbar-brand{
     font-family: "Rock Salt", sans-serif;
@@ -66,6 +71,11 @@ p{
 
 }
 /*----------------------Carousels*/
+.budapestCarousel {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 img{
     height: 500px;
     margin-top: 10px;
@@ -125,35 +135,62 @@ img{
     color: #640E27;
 }
 
+div .info-card {
+    margin-right: 0;
+}
+
 .info-card{
     width: 13rem;
     margin-left: 2rem;
     height: 19rem;
-    background-color: #640e27;
-    color: #D0ECE7;
+    background-color: #ffffff;
+    color: #640e27;
     border-radius: .3rem;
-    margin-right: 15px;
+    font-family: "Roboto", sans-serif;
+    box-shadow: 0 0px 6px 0px rgba(100, 14, 39, 1);
+    float: left;
+}
+
+.info-card-img-top {
+    width: 3rem;
+    height: 3rem;
 }
 
 .card-title-info{
     padding-top: 2rem;
     font-family: "Roboto", sans-serif;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: bold;
+    color: #640e27;
 }
 
 .list-group-item-info {
-    background-color: #640e27;
-    color: #D0ECE7;
+    background-color: #ffffff;
+    color: #640e27;
     list-style-type: none;
     font-family: "Roboto", sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     margin-top: 1rem;
 }
 
+/*------------------------Icons*/
 .fa-check{
-    color: #D0ECE7;
+    color: #640e27;
     font-size: 16px;
+}
+
+.fa-envelope {
+    color: #ffffff;
+    font-size: 22px;
+    padding-right: 1rem;
+}
+
+/*------------------------Inline-form-check*/ 
+label {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    color: #640E27;
+    align-items: center;
 }
 
 /*-------------------------Maps*/
@@ -189,49 +226,6 @@ img{
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.342);
 }
 
-/*---------------------Dropdown Menus*/
-.dropdown{
-    position: relative;
-    display: inline-block;
-    border-radius: .3rem;
-    font-family: "Roboto", sans-serif;
-}
-
-.btn:hover{
-    color: #808080;
-}
-
-.btn, .btn-color{
-    background-color: #640E27;
-    color: #D0ECE7;
-}
-
-.btn, .btn-color .dropdown-toggle:active{
-    background-color: #640E27;
-    color: #fafafa;
-}
-
-.dropdown-menu{
-    background-color: #D0ECE7;
-    box-shadow: 5px 10px rgba(0, 0, 0, 0.5);
-    border: 1px solid #640E27;
-    width: 250px;
-}
-
-.dropdown-item{
-    color: #640E27;
-}
-
-.dropdown-item a:active{
-    background-color: #640E27;
-    color: #fafafa;
-}
-
-.dropdown-item a:hover{
-    background-color: #0B5345;
-
-}
-
 /*------------------Footer*/
 
 footer{
@@ -262,6 +256,10 @@ footer{
     margin-bottom: 25px;
 }
 
+.budapest-section{
+   margin-top: 4.5rem; 
+}
+
 .content {
     font-family: "Roboto", sans-serif;
     font-size: 25px;
@@ -273,6 +271,7 @@ aside {
     width: 70%;
     padding-right: .5rem;
     padding-left: .7rem;
+    margin-top: 2rem;
     margin-left: .5rem;
     float: right;
     box-shadow: inset 6px 0 3px -5px #640E27;
@@ -292,13 +291,6 @@ aside p {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-.fa .fa-envelope{
-    margin-bottom: 5px;
-    font-size: 25px;
-    line-height: 25px;
-    background-color: #0B5345;
 }
 
 .form-group{
