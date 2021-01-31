@@ -33,7 +33,7 @@ p{
 }
 
 .main-heading {
-    font-family: "Roboto", sans-serif;
+    font-family: "Rock Salt", sans-serif;
     font-size: 35px;
     font-weight: lighter;
     margin-top: 20px;
@@ -48,7 +48,12 @@ p{
     margin: 15px;
     padding-top: 5px;
     margin-bottom: 15px;
+}
 
+.main-subheading a {
+    color: #0b5345;
+    font-weight: 500;
+    text-decoration: underline;
 }
 /*--------------------------Nav*/
 .navbar-brand{
@@ -68,6 +73,7 @@ p{
     font-family: "Roboto", sans-serif;
     color: #640E27;
     font-weight: 600;
+    font-size: 16px;
 }
 
 .bg-color{
@@ -260,7 +266,9 @@ footer{
     text-align: center;
 }
 
-
+footer p {
+    font-size: 18px;
+}
 .social-links{
     padding-bottom: 15px;
 }
@@ -391,8 +399,8 @@ aside p {
 }
 
 .about h1{
-    color: #a11640;
-    text-shadow: 2px 2px #fafafa;
+    color: #ffffff;
+    text-shadow: 4px 4px #640E27;
 }
 
 .text{
