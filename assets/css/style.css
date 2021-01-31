@@ -108,7 +108,7 @@ img{
 .carousel-caption {
     position: absolute;
     font-size: 60px;
-    font-family: "Rock Salt", sans-serif;
+    font-family: "Roboto", sans-serif;
     right: 15%;
     z-index: 10;
     padding-top: 20px;
@@ -117,7 +117,7 @@ img{
 
 .imageCarousel {
     margin-top: 3rem;
-    margin-bottom: 3rem;  
+    margin-bottom: 2rem;  
 }
 
 .keszthelyCarousel {
