@@ -9,6 +9,7 @@ body{
 .general-sub{
     font-family: "Rock Salt", sans-serif;
     font-weight: 600;
+    margin-top: 2rem;
 }
 
 p{
@@ -254,10 +255,11 @@ label {
 footer{
     background: linear-gradient(to top, #0b5345 0%, #ffffff 93%);
     color: #640e27;
-    margin: 0;
-    min-height: 100px;   
+    margin-top: 0;  
     padding: 20px; 
+    text-align: center;
 }
+
 
 .social-links{
     padding-bottom: 15px;
@@ -267,11 +269,14 @@ footer{
     width: 40px;
     height: 40px;
     padding: 12px 0;
-    border-radius: 50%;
-    font-size: 13px;
     line-height: 7px;
     text-align: center;
-    color: #fafafa;
+    color: #640e27;
+    transition: all 0.30s ease-in-out;
+}
+
+.social-links li a i:hover {
+    color: #ffffff;
 }
 
 /*-------------------------Budapest-Page*/
