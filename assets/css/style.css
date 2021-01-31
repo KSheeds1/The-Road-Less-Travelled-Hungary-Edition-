@@ -219,9 +219,15 @@ div .info-card {
 label {
     font-family: "Roboto", sans-serif;
     font-size: 18px;
-    color: #640E27;
+    font-weight: 500;
+    color: #0b5345;
     align-items: center;
 }
+
+.form-check-inline{
+    padding-left: 4rem;
+}
+
 
 /*-------------------------Maps*/
 #mapDestinations{
@@ -352,6 +358,10 @@ aside p {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+#contactForm h3 {
+    font-family: "Roboto", sans-serif;
 }
 
 .form-group{
