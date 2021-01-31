@@ -140,6 +140,7 @@ img{
     margin-bottom: 3rem;
 }
 /*-------------------------Cards*/
+/*-----------------------Hungary card located on index.html*/
 .hungary-card{
     background-color: #ffffff;
     border: none;
@@ -165,14 +166,16 @@ img{
     color: #640E27;
 }
 
+/*------------------info-cards located on all location-named HTML files*/
 div .info-card {
     margin-right: 0;
 }
 
 .info-card{
-    width: 13rem;
-    margin-left: 2rem;
-    height: 19rem;
+    width: 20rem;
+    margin-top: 2.3rem;
+    margin-left: 8rem;
+    height: 20rem;
     background-color: #ffffff;
     color: #640e27;
     border-radius: .3rem;
@@ -188,8 +191,10 @@ div .info-card {
 
 .card-title-info{
     padding-top: 2rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
     font-family: "Roboto", sans-serif;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: bold;
     color: #640e27;
 }
@@ -201,12 +206,14 @@ div .info-card {
     font-family: "Roboto", sans-serif;
     font-size: 14px;
     margin-top: 1rem;
+    padding-left: 3rem;
 }
 
 /*------------------------Icons*/
 .fa-check{
     color: #640e27;
     font-size: 16px;
+    padding-left: 0.5rem;
 }
 
 .fa-envelope {
@@ -451,5 +458,44 @@ aside p {
 @media only screen and (max-width: 320px) {
     .navbar-brand {
         font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    .info-card {
+        align-items: center;
+        margin: 0;
+        width: auto;
+        float: left;
+    }
+
+    .list-group-item-info {
+        padding-left: 0;
+    }
+
+    aside {
+       float: left;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .info-card {
+        width: 16rem;
+        margin-left: 6rem;
+        
+    }
+
+    .list-group-item-info {
+        padding-left: 0;
+    }
+
+    aside {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    aside {
+        width: 60%;
     }
 }
