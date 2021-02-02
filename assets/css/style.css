@@ -39,6 +39,8 @@ p{
     font-weight: lighter;
     margin-top: 20px;
     padding-top: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
     color: #640E27;
 }
 
@@ -48,6 +50,8 @@ p{
     font-weight: lighter;
     margin: 15px;
     padding-top: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
     margin-bottom: 15px;
 }
 
