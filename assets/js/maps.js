@@ -54,6 +54,7 @@ function initMap() {
 
 //Initialisation of map located on budapest.html
 let infowindow;
+var budapestMarkers = { 'restaurant':[], 'bar':[], 'lodging':[], 'tourist_attraction':[], 'clothing_store':[], }
 
 function initializeBudapest() {
     let budapest = new google.maps.LatLng(47.4985097, 19.0485491);
@@ -96,7 +97,7 @@ function initializeBudapest() {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
             for (let i = 0; i < results.length; i++) {
                 let place = results[i];
-                createMarker(results[i]);
+                budapestMarkers[request.type[0]].push(createMarker(results[i]));   
             }
             mapBudapest.setCenter(results[0].geometry.location);
         }
@@ -256,9 +257,21 @@ function createMarker(results) {
         currentMap,
         position: results.geometry.location,
     });
+    return marker;
     marker.setMap(currentMap);
     google.maps.event.addListener(marker, "click", () => {
         infowindow.setContent(results.name);
         infowindow.open(currentMap);
     });
+}
+
+function toggleGroup(type) {
+    for (let i = 0; i < budapestMarkers[type].length; i++) {
+        marker = budapestMarkers[type[i]];
+        if (!marker.getVisible()) {
+            marker.setVisible(true);
+        } else {
+            marker.setVisible(false);
+        }
+    }
 }
