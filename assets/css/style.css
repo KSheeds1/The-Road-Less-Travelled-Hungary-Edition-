@@ -358,6 +358,43 @@ aside {
 aside p {
     font-size: 25px;
 }
+/*-------------------------Location-options-group*/
+.location-options-group {
+    justify-content: center;
+    display: flex;
+}
+.location-card {
+    width: 25%;
+    background-color: #ffffff;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0 10px;
+    box-shadow: 4px 8px 8px 0 rgba(0, 0, 0, 0.219);
+    position: relative;
+}
+
+.location-card-title {
+    color: #640e27;
+    font-family: "Rock Salt", sans-serif;
+    font-weight: 700;
+}
+
+.location-card-text {
+    font-size: 18px;
+    font-family: "Roboto", sans-serif;
+    color: #640e27;
+}
+
+.location-card-img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
+
 
 /*-------------------------Contact-Page*/
 #contact{
@@ -522,5 +559,18 @@ aside p {
 
     aside p {
         font-size: 25px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .location-options-group {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .location-card {
+        width: 100%;
+        margin-bottom: 20px;
+        
     }
 }
