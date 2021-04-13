@@ -187,6 +187,7 @@ div .info-card {
     font-family: "Roboto", sans-serif;
     box-shadow: 0 0px 6px 0px rgba(100, 14, 39, 1);
     float: left;
+    display: block;
 }
 
 .info-card-img-top {
@@ -343,14 +344,15 @@ footer p {
 
 /*--------------------------Asides*/
 aside {
-    width: 70%;
+    width: 50%;
     padding-right: .5rem;
     padding-left: .7rem;
     margin-top: 2rem;
-    margin-left: .5rem;
+    margin-left: 1.5rem;
     float: right;
     box-shadow: inset 6px 0 3px -5px #640E27;
     font-style: italic;
+    display: block;
 }
 
 aside p {
@@ -466,16 +468,16 @@ aside p {
     .info-card {
         align-items: center;
         margin: 0;
-        width: auto;
-        float: left;
+        float: none;   
     }
 
     .list-group-item-info {
         padding-left: 0;
     }
-
-    aside {
-       float: left;
+    
+    .content {
+        margin-top: 0;
+        font-size: 14px;
     }
 }
 
@@ -486,17 +488,39 @@ aside p {
         
     }
 
+    .card-title-info {
+        font-size: 18px;
+    }
+    .list-group-item-info {
+        font-size: 18px;
+    }
+
     .list-group-item-info {
         padding-left: 0;
     }
 
     aside {
-        width: 50%;
+        width: 40%;
+        align-content: center;
+    }
+
+    aside p {
+        font-size: 18px;
     }
 }
 
 @media only screen and (min-width: 1024px) {
+    .card-title-info {
+        font-size: 18px;
+    }
+    .list-group-item-info {
+        font-size: 18px;
+    }
     aside {
-        width: 60%;
+        width: 50%;
+    }
+
+    aside p {
+        font-size: 25px;
     }
 }
