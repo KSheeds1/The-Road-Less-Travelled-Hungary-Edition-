@@ -4,6 +4,7 @@
 body{
     background-color: #ffffff;
     margin: auto;
+    height: 100%;
 }
 
 .general-sub{
@@ -38,6 +39,7 @@ p{
     font-size: 35px;
     font-weight: lighter;
     margin-top: 20px;
+    margin-bottom: 5px;
     padding-top: 5px;
     padding-left: 15px;
     padding-right: 15px;
@@ -59,6 +61,11 @@ p{
     color: #0b5345;
     font-weight: 500;
     text-decoration: underline;
+}
+
+.block-divider {
+    background-color: rgba(100, 14, 38, 0.842);
+    width: 300px;
 }
 /*--------------------------Nav*/
 .navbar-brand{
@@ -84,15 +91,55 @@ p{
 .bg-color{
     background: linear-gradient(to  bottom, #0b5345 0%, #ffffff 93%); 
 }
+/*----------------------index.html callout*/
+.callout-container {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.377), rgba(0, 0, 0, 0.39)), url("../images/index-images/hero-image.jpg");
+    height: 100vh;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.jumbotron {
+    background-color: transparent;
+    border-radius: .3rem;    
+}
+.callout {
+    padding: 4rem 2rem;
+}
+.callout-text {
+    font-family: "Rock Salt", sans-serif;
+    text-align: center;
+    color: white;
+    line-height: initial;
+    text-shadow: 2px 2px #640E27;
+}
+
+.btn-color {
+    background-color: #ffffff;
+    color: #640E27;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    transition-duration: 0.4s;
+}
+
+.btn-color:hover {
+    background-color: #640E27;
+    color: #ffffff;
+}
 /*----------------------Carousels*/
 img{
-    height: 500px;
+    height: 50vw;    
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
     display: block;
-    object-fit: cover;
+    object-fit: scale-down;
 }
 
 .container{
@@ -373,6 +420,13 @@ aside p {
     padding: 0 10px;
     box-shadow: 4px 8px 8px 0 rgba(0, 0, 0, 0.219);
     position: relative;
+    transition: 0.3s;
+}
+
+.location-card:hover {
+    box-shadow: 4px 4px 2.5px rgba(0, 0, 0, 0.219);
+    transform: scale(1.1);
+
 }
 
 .location-card-title {
