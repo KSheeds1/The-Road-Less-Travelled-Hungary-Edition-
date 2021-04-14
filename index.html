@@ -32,18 +32,38 @@
                 </ul>
             </div>
         </nav>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-12">
-                    <h1 class="main-heading text-center">Welcome to The Road Less Travelled - Hungary Edition!</h1>
-                    <h2 class="main-subheading text-center">Check out our <a href="#destinations">map</a> to explore and research our top travel destinations for holidays and travel across Hungary. 
-                        Just click on the markers found on the map to explore each destination in detail
-                    </h2>
+    </header>
+    <div class="container-fluid callout-container">
+        <div class="row">
+            <div class="col-sm-12">
+                <section class="callout jumbotron text-center">
+                    <h1 class="callout-text">Welcome to The Road Less Travelled</h1>
+                    <h2 class="callout-text">- Hungary Edition -</h2>
+                    <a class="btn btn-large btn-color" href="#destinations">Start Exploring</a>
+                </section>
+            </div>
+        </div>
+    </div>
+    <section class="container-fluid" id="destinations">
+        <div class="row">   
+            <div class="col-sm-10 mx-auto">
+                <div>
+                    <h1 class="main-heading text-center">Destinations</h1>
+                    <hr class="block-divider">
+                    <p class="text-center"> Here at The Road Less Travelled, we have handpicked our favourtie Hungarian destinations, 
+                        all brimming with the potential to provide you with your ultimate dream holiday! 
+                    <br><b>Check out our map to explore and research our top travel destinations for holidays and travel across Hungary. 
+                        Just click on the markers found on the map to explore each destination in detail.</b>
+                    </p>
+                    <div id="mapDestinations"></div>
                 </div>
             </div>
         </div>
-    </header>
+    </section>
     <section class="imageCarousel">
+        <div>
+            <h2 class="main-subheading text-center">Take a glimpse of the views that await you in Hungary!</h2>
+        </div>
         <div id="carouselIndicators" class="carousel slide carousel-fade" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
@@ -55,9 +75,9 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img class="d-block w-75" src="assets/images/destination-images/destination-img-1.jpg" alt="First Slide">
-                    <div class="carousel-caption centered">
-                        <h3>Welcome to Hungary!</h3>
-                        <h4>Isten hozott Magyarországon!</h4>
+                    <div class="carousel-caption d-none d-sm-block">
+                        <h3>Isten hozott Magyarországon!</h3>
+                        <h4>Welcome to Hungary</h4>
                     </div>
                 </div>
                 <div class="carousel-item">
@@ -82,41 +102,6 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>        
-    </section>
-    <section class="container-fluid" id="destinations">
-        <div class="row">
-            <div class="col-sm-12 d-flex justify-content-center title">
-                <h2 class="main-heading">Destinations</h2>
-            </div>
-        </div>
-        <div class="row">     
-            <div class="col-sm-10 mx-auto">
-                <div>
-                    <p class="text-center"> Here at The Road Less Travelled, we have handpicked our favourtie Hungarian destinations, 
-                        all brimming with the potential to provide you with your ultimate dream holiday! 
-                        <br><b>Click on one of the markers on the map to learn more about the destination!</b>
-                    </p>
-                    <div id="mapDestinations"></div>
-                </div>
-            </div>
-        </div>
-        <div class="card mb-3 hungary-card mx-auto" style="max-width: 540px;">
-            <div class="row no-gutters">
-                <div class="col-md-3">
-                    <img class="card-img-hungary" src="assets/images/destination-images/hungarian-flag.jpg" alt="Hungarian Flag">
-                </div>
-                <div class="col-md-5">
-                    <div class="card-body">
-                        <h5 class="card-title">Things to know before you go!</h5>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item d-flex"><b>Language:</b>&nbsp;Hungarian</li>
-                            <li class="list-group-item d-flex"><b>Currency:</b>&nbsp;Hungarian Florint (HUF)</li>
-                            <li class="list-group-item d-flex car-text"><b>Capital:</b>&nbsp;Budapest</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
     <footer class="container-fluid">
         <div class="row">
