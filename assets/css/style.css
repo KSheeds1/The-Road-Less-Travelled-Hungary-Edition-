@@ -493,6 +493,91 @@ aside p {
     color: #ffffff;
 }
 
+.ui-widget-overlay {
+    background-color: #000;
+    background-color: rgba(60, 60, 60, 0.842);
+    transition: 0.5s;
+}
+
+#customalert {
+    background: rgba(11, 83, 69, 1);
+    font-family: "Roboto", sans-serif;
+    color: #ffffff;
+    font-weight: 600;
+    text-align: center;
+    font-size: 18px;
+}
+
+.ui-dialog-title {
+    font-family: "Rock Salt", sans-serif;
+    color: #640E27;
+    font-size: 20px;
+    background: #0B5345;
+    text-shadow: 1px 1px #ffffff;
+    text-align: center;
+}
+
+.ui-dialog .ui-dialog-titlebar{
+    background: #0B5345;
+}
+
+#customalert
+.ui-dialog.titlebar
+.ui-widget-header {
+    color: #0B5345;
+    border: 1px solid #808080;
+}
+
+.ui-widget
+.ui-widget-content {
+    border-color: #838383;
+}
+
+.ui-corner-all
+.ui-corner-bottom
+.ui-corner-top
+.ui-corner-left
+.ui-corner-right
+.ui-corner-tr
+.ui-corner-tl
+.ui-corner-br
+.ui-corner- {
+    border-bottom-left-radius: none;
+    border-bottom-right-radius: none;
+    border-top-left-radius: none;
+    border-top-right-radius: none;
+}
+
+#customalert #closeAlert {
+    text-align: right;
+    justify-items: right;
+    color: #ffffff;
+    background: #640E27;
+    font-size: 18px;
+    border: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    margin-top: 8px;
+    padding: 5px 15px;
+    display: inline-block;
+    transition-duration: 0.4s;
+}
+
+#customalert #closeAlert:hover {
+    background-color: #a71741;
+}
+
+.ui-dialog-titlebar-close {
+    display: none;
+}
+
+#customalertheader {
+    font-family: "Rock Salt", sans-serif;
+    font-size: 18px;
+    padding: 10px;
+    color: #640E27;
+}
+
 /*--------------------About Page*/
 #about-us{
     background: url("../images/about-pg-image/about-pg-img.jpg") no-repeat bottom right fixed;
