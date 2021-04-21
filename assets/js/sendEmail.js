@@ -10,7 +10,27 @@ window.onload = function () {
     });
 }
 
-document.getElementById("contactForm").addEventListener("submit", function() {
-    alert("Your message has been sent!");
+
+$("#customalert").dialog({
+    autoOpen: false,
+    show: {
+        delay: 900,
+        fadeIn: 300
+    },
+    hide: {
+        fadeOut: 300
+    },
+    width: 500,
+    draggable: false,
+    modal: true
+});
+
+$("#activateAlert").click(function () {
+    $("#customalert").dialog("open");
+
+});
+$("#closeAlert").click(function () {
+    $("#customalert").dialog("close");
+    location.reload();
 });
 
