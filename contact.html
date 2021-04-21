@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <title>The Road Less Travelled - Hungary Edition</title>
     <link rel="shortcut icon" type="image/png" href="assets/images/favicon/favicon.jpg">
@@ -43,9 +46,14 @@
                         <label for="emailaddress" class="sr-only">Email Address</label>
                         <input type="email" data-validate="required email" class="form-control text-input" id="emailaddress" name="emailaddress" placeholder="Email Address" required>
                         <textarea name="message" minlength="10" class="form-control text-input" id="message" cols="30" rows="10" placeholder="Message" required></textarea>
-                        <button type="submit" class="send-button">Send</button>
+                        <button type="submit" id="activateAlert" class="send-button">Send</button>
                     </div>
                 </form>
+            </div>
+        </div>
+        <div id="customalert" title="The Road Less Travelled">Your message has been sent, thank you for getting in touch!
+            <div class="alertButton">
+                <button id="closeAlert">Ok</button>
             </div>
         </div>
     </main>
@@ -91,6 +99,6 @@
         })();
     </script>
     <script src="assets/js/sendEmail.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>-->
 </body>
 </html>
