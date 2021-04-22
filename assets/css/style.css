@@ -9,9 +9,9 @@ body{
 
 .general-sub{
     font-family: "Rock Salt", sans-serif;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
-    margin-top: auto;
+    margin-top: 15px;
 }
 
 p{
@@ -327,19 +327,36 @@ label {
 footer {
     background: linear-gradient(to top, #0b5345 0%, #ffffff 93%);
     color: #640e27;  
-    text-align: center;
     position: absolute;
-    width: 100%;    
+    width: 100%;
+    height: fit-content;
+    padding: 5px;   
+    text-align: center; 
 }
 
 footer p {
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.company-info {
+    float: left;
+    text-align: start;
+}
+
+.personal-info {
+    text-align: end;
+    color: #640E27;
+}
+
+.social-links {
+    text-align: center;
 }
 
 .social-links li a i{
     padding: 12px 0;
     line-height: 7px;
-    font-size: 20px;
     text-align: center;
     color: #640e27;
     transition: all 0.30s ease-in-out;
@@ -583,11 +600,11 @@ aside p {
     background: url("../images/about-pg-image/about-pg-img.jpg") no-repeat bottom right fixed;
     background-color: #D0ECE7;
     width: 100%;
+    height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;  
-    
 }
 
 .about{
@@ -603,6 +620,7 @@ aside p {
     color: #ffffff;
     font-size: 25px;
     line-height: 2.5rem;
+    text-shadow: 1px 1px #640E27;
     
 }
 
@@ -682,6 +700,10 @@ aside p {
 
     aside p {
         font-size: 18px;
+    }
+
+    #about-us {
+        height: 100vh;
     }
 }
 
