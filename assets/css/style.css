@@ -88,6 +88,18 @@ p{
     font-size: 16px;
 }
 
+.navbar-nav .active .a {
+    color: #640E27;
+}
+
+.nav-item a:hover {
+    color: #ffffff;
+}
+
+.nav-item a:active {
+    color: #ffffff;
+}
+
 .bg-color{
     background: linear-gradient(to  bottom, #0b5345 0%, #ffffff 93%); 
 }
