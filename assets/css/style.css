@@ -88,15 +88,7 @@ p{
     font-size: 16px;
 }
 
-.navbar-nav .active .a {
-    color: #640E27;
-}
-
-.nav-item a:hover {
-    color: #ffffff;
-}
-
-.nav-item a:active {
+.nav-item a.active {
     color: #ffffff;
 }
 
