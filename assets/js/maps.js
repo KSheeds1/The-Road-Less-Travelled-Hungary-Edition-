@@ -20,6 +20,10 @@ function initMap() {
         }
     });
 
+    let infowindow = new google.maps.InfoWindow({
+        content: ""
+    });
+
     let labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     let locations = [
@@ -30,10 +34,10 @@ function initMap() {
     ];
     
     let markerLocations = [
-        { name: "Budapest", lat: 47.496717,  lng: 19.013397, url: "budapest.html" },
-        { name: "Pécs", lat: 46.0751089, lng: 18.2261525, url: "pecs.html" },
-        { name: "Siofok", lat: 46.9019145, lng: 18.0447842, url: "siofok.html" },
-        { name: "Keszthely", lat: 46.7498531, lng: 17.1719147, url: "keszthely.html" }
+        { name: "Budapest", lat: 47.496717,  lng: 19.013397, description: "<strong>Budapest:</strong><br>Hungary's capital city, click on the red marker to learn more about Budapest.", url: "budapest.html" },
+        { name: "Pécs", lat: 46.0751089, lng: 18.2261525, description: "<strong>Pécs:</strong><br>Perfect for a city break, click on the red marker to learn more.", url: "pecs.html" },
+        { name: "Siofok", lat: 46.9019145, lng: 18.0447842, description: "<strong>Siófok:</strong><br>A small town with a big history, click on the red marker to learn more.", url: "siofok.html" },
+        { name: "Keszthely", lat: 46.7498531, lng: 17.1719147, description: "<strong>Keszthely:</strong><br>Hungary's lakeside retreat, click on the red marker to learn more.", url: "keszthely.html" }
     ];
       
     for (let i = 0; i < markerLocations.length; i++) {
@@ -46,10 +50,23 @@ function initMap() {
             label: labels[i % labels.length]
         });
 
+        bindInfoWindow(marker, map, infowindow, markerLocations[i].description);
+
         google.maps.event.addListener(marker, "click", function() {
             window.location.href = marker.url;
         });
     }
+}
+
+function bindInfoWindow(marker, map, infowindow, description){
+    marker.addListener("mouseover", function() {
+        infowindow.setContent(description);
+        infowindow.open(map, this);
+    });
+
+    marker.addListener("mouseout", function() {
+        infowindow.close();
+    })
 }
 
 //Initialisation of map located on budapest.html
