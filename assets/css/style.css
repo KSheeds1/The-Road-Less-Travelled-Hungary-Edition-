@@ -653,6 +653,10 @@ aside p {
     .navbar-brand {
         font-size: 12px;
     }
+
+    .callout-text {
+        font-size: 10vw;
+    }
 }
 
 @media only screen and (max-width: 1024px) {
@@ -694,6 +698,10 @@ aside p {
 
     .form-group {
         margin-top: 1rem;
+    }
+
+    .carousel-indicators {
+        display: none;
     }
 }
 
