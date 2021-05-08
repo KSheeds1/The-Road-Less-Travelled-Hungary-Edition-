@@ -75,50 +75,37 @@ var budapestMarkers = { 'restaurant':[], 'bar':[], 'lodging':[], 'tourist_attrac
 
 function initializeBudapest() {
     let budapest = new google.maps.LatLng(47.4985097, 19.0485491);
-    infowindow = new google.maps.InfoWindow();
     mapBudapest = new google.maps.Map(document.getElementById("mapBudapest"), {
         zoom: 14,
         center: budapest
     });
 
     currentMap = mapBudapest;
+    infowindow = new google.maps.InfoWindow({
+        content: ""
+    });
 
     let request = {
         location: budapest,
         radius: '8046',
-        type: ['restaurant']
+        type: ['restaurant', 'tourist_attraction', 'bar', 'department_store', 'lodging']
     };
 
-    /*let request1 = {
-        location: budapest,
-        radius: '8046',
-        type: ['tourist_attraction']
-    };
-
-    let request2 = {
-        location: budapest,
-        radius: '8046',
-        type: ['department_store']
-    };
-
-    let request3 = {
-        location: budapest,
-        radius: '8046',
-        type: ['room']
-    };*/
+    let types = ["restaurant", "tourist_attraction", "bar", "department_store", "lodging"];
 
     service = new google.maps.places.PlacesService(mapBudapest);
     service.textSearch(request, callback);
 
     function callback(results, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
-            for (let i = 0; i < results.length; i++) {
-                let place = results[i];
-                budapestMarkers[request.type[0]].push(createMarker(results[i]));   
+            for (let j = 0; j < results.length; j++) {
+                let place = results[j];
+                budapestMarkers[request.type[0]].push(createMarker(results[j]));   
             }
             mapBudapest.setCenter(results[0].geometry.location);
         }
     }
+    console.log(budapestMarkers);
 }
 
 //Initialisation of map located on keszthely.html
@@ -167,7 +154,7 @@ function initializeKeszthely() {
             }
             mapKeszthely.setCenter(results[0].geometry.location);
         }
-    } 
+    }
 } 
 
 //Initialisation of map located on siofok.html
@@ -274,12 +261,15 @@ function createMarker(results) {
         currentMap,
         position: results.geometry.location,
     });
-    return marker;
     marker.setMap(currentMap);
-    google.maps.event.addListener(marker, "click", () => {
-        infowindow.setContent(results.name);
-        infowindow.open(currentMap);
+    google.maps.event.addListener(marker, "mouseover", () => {
+        infowindow.setContent(results.name, results.formatted_address, results.opening_hours, results.rating);
+        infowindow.open(currentMap, marker);
     });
+    google.maps.event.addListener(marker, "mouseout", function () {
+        infowindow.close();
+    })
+    return marker;
 }
 
 function toggleGroup(type) {
