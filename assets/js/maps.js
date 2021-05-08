@@ -263,7 +263,10 @@ function createMarker(results) {
     });
     marker.setMap(currentMap);
     google.maps.event.addListener(marker, "mouseover", () => {
-        infowindow.setContent(results.name, results.formatted_address, results.opening_hours, results.rating);
+        let content = results.name + '<br>' +
+                      results.formatted_address + '<br>' +
+                      results.rating + '<br>';
+        infowindow.setContent(content);
         infowindow.open(currentMap, marker);
     });
     google.maps.event.addListener(marker, "mouseout", function () {
