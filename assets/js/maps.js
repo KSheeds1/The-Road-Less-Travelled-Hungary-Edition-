@@ -108,103 +108,80 @@ function initializeBudapest() {
             mapBudapest.setCenter(results[0].geometry.location);
         }
     }
-    console.log(budapestMarkers);
 }
 
 //Initialisation of map located on keszthely.html
+var keszthelyMarkers = { 'restaurant':[], 'bar':[], 'lodging':[], 'tourist_attraction':[], 'department_store':[], }
 
 function initializeKeszthely() { 
     let keszthely = new google.maps.LatLng(46.7498531, 17.1719147);
-    infowindow = new google.maps.InfoWindow();
     mapKeszthely = new google.maps.Map(document.getElementById("mapKeszthely"), {
         zoom: 14,
         center: keszthely
     });
 
     currentMap = mapKeszthely;
-    infowindow = new google.maps.InfoWindow();
+    infowindow = new google.maps.InfoWindow({
+        content: ""
+    });
     
     let request = {
         location: keszthely,
         radius: '8046',
-        type: ['restaurant']
+        type: ['restaurant', 'tourist_attraction', 'bar', 'department_store', 'lodging']
     };
+
+    let types = ["restaurant", "tourist_attraction", "bar", "department_store", "lodging"];
     
-    /*let request1 = {
-        location: keszthely,
-        radius: '8046',
-        type: ['tourist_attraction']
-    };
-
-    let request2 = {
-        location: keszthely,
-        radius: '8046',
-        type: ['department_store']
-    };
-
-    let request3 = {
-        location: keszthely,
-        radius: '8046',
-        type: ['room']
-    };*/
-
     service = new google.maps.places.PlacesService(mapKeszthely);
     service.textSearch(request, callback);
 
     function callback(results, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
-            for (let i = 0; i < results.length; i++) {
-                let place = results[i];
-                (createMarker(results[i]));
+            for (let i = 0; i < types.length; i++) {
+                for (let j = 0; j < results.length; j++) {
+                    let place = results[j];
+                    keszthelyMarkers[request.type[i]].push(createMarker(results[j]));
+                }
             }
             mapKeszthely.setCenter(results[0].geometry.location);
         }
-    }
+    } 
 } 
 
 //Initialisation of map located on siofok.html
+var siofokMarkers = { 'restaurant':[], 'bar':[], 'lodging':[], 'tourist_attraction':[], 'department_store':[], }
+
 function initializeSiofok() {  
     let siofok = new google.maps.LatLng(46.9019145, 18.0447842);
-    infowindow = new google.maps.InfoWindow();
     mapSiofok = new google.maps.Map(document.getElementById("mapSiofok"), {
         zoom: 13,
         center: siofok
     });
 
     currentMap = mapSiofok;
+    infowindow = new google.maps.InfoWindow({
+        content: ""
+    });
 
     let request = {
         location: siofok,
         radius: '8046',
-        type: ['restaurant']
+        type: ['restaurant', 'tourist_attraction', 'bar', 'department_store', 'lodging']
     };
 
-    /*let request1 = {
-        location: siofok,
-        radius: '8046',
-        type: ['tourist_attraction']
-    };
-
-    let request2 = {
-        location: siofok,
-        radius: '8046',
-        type: ['department_store']
-    };
-
-    let request3 = {
-        location: siofok,
-        radius: '8046',
-        type: ['room']
-    };*/
+    let types = ["restaurant", "tourist_attraction", "bar", "department_store", "lodging"];
 
     service = new google.maps.places.PlacesService(mapSiofok);
     service.textSearch(request, callback);
 
     function callback(results, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
-            for (let i = 0; i < results.length; i++) {
-                let place = results[i];
-                createMarker(results[i]);
+            for (let i = 0; i < types.length; i++) {
+                for (let j = 0; j < results.length; j++) {
+                     let place = results[j];
+                    siofokMarkers[request.type[i]].push(createMarker(results[j]));
+                }
             }
             mapSiofok.setCenter(results[0].geometry.location);
         }
@@ -212,54 +189,43 @@ function initializeSiofok() {
 }
 
 //Initialisation of map located on pecs.html
+var pecsMarkers = { 'restaurant':[], 'bar':[], 'lodging':[], 'tourist_attraction':[], 'department_store':[], }
+
 function initializePecs() {  
     let pecs = new google.maps.LatLng(46.0751089, 18.2261525);
-    infowindow = new google.maps.InfoWindow();
     mapPecs = new google.maps.Map(document.getElementById("mapPecs"), {
         zoom: 14,
         center: pecs
     });
 
     currentMap = mapPecs;
+    infowindow = new google.maps.InfoWindow({
+        content: ""
+    });
 
     let request = {
         location: pecs,
         radius: '8046',
-        type: ['restaurant']
+        type: ['restaurant', 'tourist_attraction', 'bar', 'department_store', 'lodging']
     };
 
-    /*let request1 = {
-        location: pecs,
-        radius: '8046',
-        type: ['tourist_attraction']
-    };
-
-    let request2 = {
-        location: pecs,
-        radius: '8046',
-        type: ['department_store']
-    };
-
-    let request3 = {
-        location: pecs,
-        radius: '8046',
-        type: ['room']
-    };*/
+    let types = ["restaurant", "tourist_attraction", "bar", "department_store", "lodging"];
 
     service = new google.maps.places.PlacesService(mapPecs);
     service.textSearch(request, callback);
 
     function callback(results, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
-            for (let i = 0; i < results.length; i++) {
-                let place = results[i];
-                createMarker(results[i]);
+            for (let i = 0; i < types.length; i++) {
+                for (let j = 0; j < results.length; j++) {
+                    let place = results[j];
+                    pecsMarkers[request.type[i]].push(createMarker(results[j]));
+                }  
             }
             mapPecs.setCenter(results[0].geometry.location);
         }
     }
 }
-
 
 function createMarker(results) {
     let marker = new google.maps.Marker({
