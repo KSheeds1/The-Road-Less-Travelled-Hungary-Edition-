@@ -469,10 +469,11 @@ aside p {
     color: #640e27;
     font-family: "Rock Salt", sans-serif;
     font-weight: 700;
+    font-size: 2vw;
 }
 
 .location-card-text {
-    font-size: 18px;
+    font-size: 1.5vw;
     font-family: "Roboto", sans-serif;
     color: #640e27;
 }
