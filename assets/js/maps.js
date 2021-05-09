@@ -71,7 +71,7 @@ function bindInfoWindow(marker, map, infowindow, description){
 
 //Initialisation of map located on budapest.html
 let infowindow;
-var budapestMarkers = { 'restaurant':[], 'bar':[], 'lodging':[], 'tourist_attraction':[], 'clothing_store':[], }
+var budapestMarkers = { 'restaurant':[], 'bar':[], 'lodging':[], 'tourist_attraction':[], 'department_store':[], }
 
 function initializeBudapest() {
     let budapest = new google.maps.LatLng(47.4985097, 19.0485491);
@@ -98,10 +98,13 @@ function initializeBudapest() {
 
     function callback(results, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
-            for (let j = 0; j < results.length; j++) {
-                let place = results[j];
-                budapestMarkers[request.type[0]].push(createMarker(results[j]));   
+            for (let i = 0; i < types.length; i++) {
+                for (let j = 0; j < results.length; j++) {
+                    let place = results[j]
+                    budapestMarkers[request.type[i]].push(createMarker(results[j]));
+                }
             }
+            
             mapBudapest.setCenter(results[0].geometry.location);
         }
     }
@@ -109,6 +112,7 @@ function initializeBudapest() {
 }
 
 //Initialisation of map located on keszthely.html
+
 function initializeKeszthely() { 
     let keszthely = new google.maps.LatLng(46.7498531, 17.1719147);
     infowindow = new google.maps.InfoWindow();
@@ -118,13 +122,14 @@ function initializeKeszthely() {
     });
 
     currentMap = mapKeszthely;
-
+    infowindow = new google.maps.InfoWindow();
+    
     let request = {
         location: keszthely,
         radius: '8046',
         type: ['restaurant']
     };
-
+    
     /*let request1 = {
         location: keszthely,
         radius: '8046',
@@ -150,7 +155,7 @@ function initializeKeszthely() {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
             for (let i = 0; i < results.length; i++) {
                 let place = results[i];
-                createMarker(results[i]);
+                (createMarker(results[i]));
             }
             mapKeszthely.setCenter(results[0].geometry.location);
         }
@@ -276,11 +281,11 @@ function createMarker(results) {
 }
 
 function toggleGroup(type) {
-    for (let i = 0; i < budapestMarkers[type].length; i++) {
-        marker = budapestMarkers[type[i]];
-        if (!marker.getVisible()) {
+    for (let i = 0; i < budapestMarkers(request.type[0]).length; i++) {
+        let marker = budapestMarkers[request.type][i];
+        if (marker.getVisible()) {
             marker.setVisible(true);
-        } else {
+        }else {
             marker.setVisible(false);
         }
     }
