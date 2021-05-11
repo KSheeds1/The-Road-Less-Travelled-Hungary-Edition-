@@ -291,6 +291,7 @@ label {
 
 .form-check-inline{
     padding-left: 4rem;
+    margin-right: 0;
 }
 
 .reset-btn {
@@ -308,6 +309,78 @@ label {
     background-color: #ffffff;
     color: #0b5345;
 }
+/*-------------------------Google Codelabs Panel
+Basic style rules were taken from the CSS of Google CodeLabs 'Build a nearby business search service' tutorial and additional rules were added to further style the panel.
+https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-js#4
+*/
+
+#panel {
+    float: left;
+    height: 400px;
+    width: null;
+    background-color: #ffffff;
+    position: relative;
+    right: 0.5%;
+    top: 7.5%;
+    z-index: 1;
+    overflow-x: hidden;
+    transition: all .2s ease-out;
+}
+
+.open {
+    width: 250px;
+    box-shadow: -10px 0px 10px 1px rgba(0, 0, 0, 0.342);
+}
+
+
+.hero {
+    width: 100%;
+    height: auto;
+    max-height: 166px;
+    display: block;
+}
+
+img.hero {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+h1.place{
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    padding-left: 18px;
+    padding-right: 18px;
+    color: #640e27;
+}
+
+p.details {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    padding-left: 18px;
+    padding-right: 18px;
+    color: #212529;
+}
+
+.details {
+    color: #212529;
+    font-size: 14px;
+}
+
+.panel-link:link, .panel-link:active {
+    text-decoration: none;
+    color: #0B5345;
+    font-size: 12px;
+    overflow: hidden;
+    padding-left: 18px;
+    padding-right: 18px;
+    text-align: left;
+    display: inline-block;
+}
+
+.panel-link:hover, .panel-link:active {
+    color: rgb(59, 223, 190);
+}
+
 /*-------------------------Maps*/
 #mapDestinations{
     min-height: 400px;
@@ -320,7 +393,6 @@ label {
     min-height: 400px;
     margin-bottom: 5rem;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.342);
-    position: relative;
 }
 
 #mapKeszthely{
@@ -469,11 +541,11 @@ aside p {
     color: #640e27;
     font-family: "Rock Salt", sans-serif;
     font-weight: 700;
-    font-size: 2vw;
+    font-size: 14px;
 }
 
 .location-card-text {
-    font-size: 1.5vw;
+    font-size: 10px;
     font-family: "Roboto", sans-serif;
     color: #640e27;
 }
@@ -483,9 +555,6 @@ aside p {
     height: auto;
     object-fit: cover;
 }
-
-
-
 
 /*-------------------------Contact-Page*/
 #contact{
@@ -719,12 +788,25 @@ aside p {
     .carousel-indicators {
         display: none;
     }
+    
+    #panel {
+        float: none;
+        position: absolute;
+        top: 90%;
+        z-index: 0;
+        right: auto;
+        height: fit-content;
+    }
+
+    .open{
+        max-height: 500px;
+    }
 }
 
 @media only screen and (min-width: 768px) {
     .info-card {
         width: 16rem;
-        margin-left: 6rem;
+        margin-left: 2.5rem;
         
     }
 
