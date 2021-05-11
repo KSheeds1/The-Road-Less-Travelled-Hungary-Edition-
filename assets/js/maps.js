@@ -69,10 +69,17 @@ function bindInfoWindow(marker, map, infowindow, description){
     })
 }
 
-//Initialisation of map located on budapest.html
+//This code snippet was sourced from a Google CodeLabs tutorial 'Build a nearby business search service with Google Maps Platform - Show Place Details on Demand'.//
+//https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-js#4 //
+let infoPane;
 let infowindow;
+let currentInfoWindow;
+
+//End of code snippet//
+
 var budapestMarkers = { 'restaurant':[], 'bar':[], 'lodging':[], 'tourist_attraction':[], 'department_store':[], }
 
+//Initialisation of map located on budapest.html
 function initializeBudapest() {
     let budapest = new google.maps.LatLng(47.4985097, 19.0485491);
     mapBudapest = new google.maps.Map(document.getElementById("mapBudapest"), {
@@ -80,10 +87,15 @@ function initializeBudapest() {
         center: budapest
     });
 
+    //Elements of this code was sourced from a Google CodeLabs tutorial 'Build a nearby business search service with Google Maps Platform - Show Place Details on Demand'.//
+    //https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-js#4 //
+
+    infoPane = document.getElementById('panel');
     currentMap = mapBudapest;
-    infowindow = new google.maps.InfoWindow({
-        content: ""
-    });
+    infowindow = new google.maps.InfoWindow;
+    currentInfoWindow = infowindow;
+
+    //End of sourced code//
 
     let request = {
         location: budapest,
@@ -111,6 +123,7 @@ function initializeBudapest() {
 }
 
 //Initialisation of map located on keszthely.html
+
 var keszthelyMarkers = { 'restaurant':[], 'bar':[], 'lodging':[], 'tourist_attraction':[], 'department_store':[], }
 
 function initializeKeszthely() { 
@@ -120,11 +133,16 @@ function initializeKeszthely() {
         center: keszthely
     });
 
+    //Elements of this code was sourced from a Google CodeLabs tutorial 'Build a nearby business search service with Google Maps Platform - Show Place Details on Demand'.//
+    //https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-js#4 //
+
+    infoPane = document.getElementById('panel');
     currentMap = mapKeszthely;
-    infowindow = new google.maps.InfoWindow({
-        content: ""
-    });
+    infowindow = new google.maps.InfoWindow;
+    currentInfoWindow = infowindow;
     
+    //End of sourced code//
+
     let request = {
         location: keszthely,
         radius: '8046',
@@ -159,10 +177,15 @@ function initializeSiofok() {
         center: siofok
     });
 
+    //Elements of this code was sourced from a Google CodeLabs tutorial 'Build a nearby business search service with Google Maps Platform - Show Place Details on Demand'.//
+    //https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-js#4 //
+
+    infoPane = document.getElementById('panel');
     currentMap = mapSiofok;
-    infowindow = new google.maps.InfoWindow({
-        content: ""
-    });
+    infowindow = new google.maps.InfoWindow;
+    currentInfoWindow = infowindow;
+
+    //End of sourced code//
 
     let request = {
         location: siofok,
@@ -186,7 +209,7 @@ function initializeSiofok() {
             mapSiofok.setCenter(results[0].geometry.location);
         }
     }
-}
+} console.log(siofokMarkers);
 
 //Initialisation of map located on pecs.html
 var pecsMarkers = { 'restaurant':[], 'bar':[], 'lodging':[], 'tourist_attraction':[], 'department_store':[], }
@@ -198,10 +221,15 @@ function initializePecs() {
         center: pecs
     });
 
+    //Elements of this code was sourced from a Google CodeLabs tutorial 'Build a nearby business search service with Google Maps Platform - Show Place Details on Demand'.//
+    //https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-js#4 //
+
+    infoPane = document.getElementById('panel');
     currentMap = mapPecs;
-    infowindow = new google.maps.InfoWindow({
-        content: ""
-    });
+    infowindow = new google.maps.InfoWindow;
+    currentInfoWindow = infowindow;
+
+    //End of sourced code//
 
     let request = {
         location: pecs,
@@ -233,26 +261,92 @@ function createMarker(results) {
         position: results.geometry.location,
     });
     marker.setMap(currentMap);
-    google.maps.event.addListener(marker, "mouseover", () => {
-        let content = results.name + '<br>' +
-                      results.formatted_address + '<br>' +
-                      results.rating + '<br>';
-        infowindow.setContent(content);
-        infowindow.open(currentMap, marker);
+
+    //This code snippet was sourced from a Google CodeLabs tutorial 'Build a nearby business search service with Google Maps Platform - Show Place Details on Demand'.//
+    //https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-js#4  - Slight alterations have been made for it to fit the purposes of this site.//
+
+    google.maps.event.addListener(marker, 'click', () => {
+        let request = {
+            placeId: results.place_id,
+            fields: ['name', 'formatted_address', 'geometry', 'rating', 'website', 'photos']
+        };
+
+        service.getDetails(request, (placeResult, status) => {
+            showDetails(placeResult, marker, status)
+        });
     });
-    google.maps.event.addListener(marker, "mouseout", function () {
-        infowindow.close();
-    })
     return marker;
 }
 
+function showDetails(placeResult, marker, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+        let placeInfowindow = new google.maps.InfoWindow();
+        let rating = "None";
+        if (placeResult.rating) rating = placeResult.rating;
+        placeInfowindow.setContent('<div><strong>' + placeResult.name +
+          '</strong><br>' + 'Rating: ' + rating + '</div>');
+        placeInfowindow.open(marker.map, marker);
+        currentInfoWindow.close();
+        currentInfoWindow = placeInfowindow;
+        showPanel(placeResult);
+      } else {
+        console.log('showDetails failed: ' + status);
+    }
+
+    function showPanel(placeResult) {
+        while (infoPane.lastChild) {
+            infoPane.removeChild(infoPane.lastChild);
+        }
+
+        if (placeResult.photos) {
+            let firstPhoto = placeResult.photos[0];
+            let photo = document.createElement('img');
+            photo.classList.add('hero');
+            photo.src = firstPhoto.getUrl();
+            infoPane.appendChild(photo);
+        }
+
+        infoPane.classList.add("open");
+    }
+
+    let name = document.createElement('h1');
+    name.classList.add('place');
+    name.textContent = placeResult.name;
+    infoPane.appendChild(name);
+    if (placeResult.rating) {
+        let rating = document.createElement('p');
+        rating.classList.add('details');
+        rating.textContent = `Rating: ${placeResult.rating} \u272e`;
+        infoPane.appendChild(rating);
+    }
+    let address = document.createElement('p');
+    address.classList.add('details');
+    address.textContent = placeResult.formatted_address;
+    infoPane.appendChild(address);
+    if (placeResult.website) {
+        let websitePara = document.createElement('p');
+        let websiteLink = document.createElement('a');
+        websiteLink.classList.add('panel-link');
+        let websiteUrl = document.createTextNode(placeResult.website);
+        websiteLink.appendChild(websiteUrl);
+        websiteLink.title = placeResult.website;
+        websiteLink.href = placeResult.website;
+        websitePara.appendChild(websiteLink);
+        infoPane.appendChild(websitePara);
+    }
+}
+//End of Google CodeLabs code snippet//
+
 function toggleGroup(type) {
-    for (let i = 0; i < budapestMarkers(request.type[0]).length; i++) {
-        let marker = budapestMarkers[request.type][i];
+    for (let i = 0; i < budapestMarkers.length; i++) {
+        let marker = budapestMarkers[type][i];
         if (marker.getVisible()) {
             marker.setVisible(true);
-        }else {
+        } else {
             marker.setVisible(false);
         }
     }
+
 }
+
+
