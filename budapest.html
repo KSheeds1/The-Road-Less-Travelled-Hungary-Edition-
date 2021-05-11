@@ -48,31 +48,33 @@
     </header>
     <section class="container-fluid budapest-section">
         <div class="row justify-content-center">     
-            <div class="col-xs-6 col-md-9">
+            <div class="col-xs-6 offset -1 col-md-9">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" onclick="toggleGroup('lodging')" id="accommodation" value="option1" checked>
+                    <input class="form-check-input" type="checkbox" name="budapestMarkers" onclick="toggleGroup('tourist_attraction')" id="accommodation" value="option1">
                     <label class="form-check-label" for="inlineCheckbox1">Accommodation</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" onclick="toggleGroup('tourist_attraction')" id="attractions" value="option2">
+                    <input class="form-check-input" type="checkbox" name="budapestMarkers" onclick="toggleGroup('tourist_attraction')" id="attractions" value="option2">
                     <label class="form-check-label" for="inlineCheckbox2">Attractions</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" onclick="toggleGroup('restaurant')" id="restaurants" value="option3">
+                    <input class="form-check-input" type="checkbox" name="budapestMarkers" onclick="toggleGroup('restaurant')" id="restaurants" value="option3">
                     <label class="form-check-label" for="inlineCheckbox3">Restaurants</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" onclick="toggleGroup('bar')" id="bars" value="option4">
+                    <input class="form-check-input" type="checkbox" name="budapestMarkers" onclick="toggleGroup('bar')" id="bars" value="option4">
                     <label class="form-check-label" for="inlineCheckbox4">Bars</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" onclick="toggleGroup('clothing_store')" id="Shopping" value="option5">
+                    <input class="form-check-input" type="checkbox" name="budapestMarkers" onclick="toggleGroup('clothing_store')" id="Shopping" value="option5">
                     <label class="form-check-label" for="inlineCheckbox5">Shopping</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input type="button" id="reset" class="reset-btn" value="Reset">
+                    <input type="button" name="filter" id="reset" class="reset-btn" value="Reset">
                     <span class="sr-only">Reset Checkbox Button</span>
                 </div>
+                <!--Panel is sourced from Google CodeLabs 'Build a nearby business search service' tutorial: https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-js#4 -->
+                <div id="panel"></div>
                 <div id="mapBudapest"></div>
             </div>
         </div>
