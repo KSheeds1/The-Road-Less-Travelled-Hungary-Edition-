@@ -7,22 +7,42 @@ Access the live site [here]()
 
 # UX
 ## User Stories
->*As the head of my family, I want to research possible holiday destinations that suit all my needs and budget so that I can holiday in Europe with my family, but without the exorbitant price tag.*
+> *As a user, I want to be able to navigate the site quickly and easily to find what I am looking for.*
 
->*As an experienced traveller, I like to research my trips in advance so that I can find a travel destination that isn’t overrun with tourists.*
+> *As a user, I want to be able to ascertain the purpose of the site.*
 
->*As a couple, we love going on weekend city breaks! We want to explore different city break locations so that we can find a destination that is off the beaten track but still offers all the amenities.*
+> *As the head of my family, I want to research possible holiday destinations that suit all my needs and budget so that I can holiday in Europe with my family, but without the exorbitant price tag.*
 
->*I have been exploring the site and have a query, the answer doesn’t seem to be available on the website, I would like to find out more about it, is this possible?*
+> *As an experienced traveller, I like to research my trips in advance so that I can find a travel destination that isn’t overrun with tourists.*
+
+> *As a user, I like to see the amenities available in an area or location I'm researching displayed in a suitable format.*
+
+> *As a couple, we love going on weekend city breaks! We want to explore different city break locations so that we can find a destination that is off the beaten track but still offers all the amenities.*
+
+> *As a user, I would like to be able to visualise the location I'm researching, getting to see images of the location I may potentially visit helps to inform my decision.*
+
+> *I have been exploring the site and have a query, the answer doesn’t seem to be available on the website, I would like to find out more about it, is this possible?*
+
+> *As a user, I want to be able to check out social media accounts associated with site to keep up to date with new information and locations.*
+
 
 ## Strategies:
+### Purpose & Objectives: 
+* The purpose of the site is to provide a well-structured platform where users can explore a variety of holiday destinations around Hungary. The Road Less Travelled not only showcases top holiday destinations but has all the practical information needed to choose the location best suited to the user.
+Site users can easily research what amenities are available in each location through the interactive map, check out photos of each destination, follow our social media accounts to be kept up to date or, reach out to our team via email. 
+The site establishes Hungary as a worthy alternative to mainstream European holiday destinations, that tend to be more expensive due to popularity, by showcasing all that Hungary has to offer as a holiday or travelling destination. 
 
-* The objective of the site is to provide a well-structured platform where users can explore a variety of holiday destinations around Hungary. The Road Less Travelled not only showcases top holiday destinations but has all the practical information needed to choose the location best suited to the user. 
-
-* To provide practical information regarding local amenities available through interactive maps, which display information and options for accommodation, restaurants, attractions, and shopping for each of our featured destinations. 
+* The objective of this site is to provide practical information regarding local amenities for different locations around Hungary. The site owner has chosen to use interactive maps, to display information and options for accommodation, restaurants, attractions, and shopping for each of our featured destinations.
+Interactive maps provide a suitable format to display such information, allowing the user to understand the information provided visually while also providing much needed context that may be lost through other formats.
+The addition of image carousels provides further visual context to each location and the information provided through the maps.  
+Each of the featured destinations also come with background information on all locations and relays whether the chosen destination best suits the type of trip the user is looking to have, be it a family holiday, city break, couples holiday or for a stag or hen party.  
   
-
-* The owner goal is to establish a well-structured, interactive site that is both aesthetically pleasing and user friendly in design. Which aids users to research potential holiday or travel destinations across Hungary and find all the necessary information needed to make an informed decision in one place. 
+### Owner Goals:
+* To establish a well-structured, interactive site that is both aesthetically pleasing and user friendly in design. 
+* Aid users to research potential holiday or travel destinations across Hungary and find all the necessary information needed to make an informed decision in one place.
+* To display information in an easily digestable format such as an interactive map and image carousels.
+* To establish a means of contact between users and the site owner via email.
+* To provide site access across mulitple devices for viewing on the go. 
 
 
 ## Scope:
