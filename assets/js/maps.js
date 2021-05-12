@@ -268,7 +268,7 @@ function createMarker(results) {
     google.maps.event.addListener(marker, 'click', () => {
         let request = {
             placeId: results.place_id,
-            fields: ['name', 'formatted_address', 'geometry', 'rating', 'website', 'photos']
+            fields: ['name', 'formatted_address', 'geometry', 'rating', 'price_level', 'review', 'website', 'photos']
         };
 
         service.getDetails(request, (placeResult, status) => {
@@ -284,7 +284,7 @@ function showDetails(placeResult, marker, status) {
         let rating = "None";
         if (placeResult.rating) rating = placeResult.rating;
         placeInfowindow.setContent('<div><strong>' + placeResult.name +
-          '</strong><br>' + 'Rating: ' + rating + '</div>');
+          '</strong><br>' + 'Rating: ' + rating + `\u272e` + '</div>');
         placeInfowindow.open(marker.map, marker);
         currentInfoWindow.close();
         currentInfoWindow = placeInfowindow;
@@ -323,6 +323,12 @@ function showDetails(placeResult, marker, status) {
     address.classList.add('details');
     address.textContent = placeResult.formatted_address;
     infoPane.appendChild(address);
+    if (placeResult.price_level) {
+        let price_level = document.createElement('p');
+        price_level.classList.add('details');
+        price_level.textContent = `Price-level: ${placeResult.price_level}`;
+        infoPane.appendChild(price_level);
+    }
     if (placeResult.website) {
         let websitePara = document.createElement('p');
         let websiteLink = document.createElement('a');
@@ -334,7 +340,26 @@ function showDetails(placeResult, marker, status) {
         websitePara.appendChild(websiteLink);
         infoPane.appendChild(websitePara);
     }
+    if (placeResult.reviews) {
+        let reviewHeading = document.createElement('h1');
+        reviewHeading.classList.add('place');
+        let reviewHeadingText = document.createTextNode("Reviews:");
+        reviewHeading.appendChild(reviewHeadingText);
+        infoPane.appendChild(reviewHeading);
+        for (let i = 0; i < placeResult.reviews.length; i++) {
+            let author_name = placeResult.reviews[i].author_name;
+            let text = placeResult.reviews[i].text;
+            let rating = placeResult.reviews[i].rating;
+            let reviews = document.createElement('p')
+            reviews.classList.add('details');
+            reviews.textContent = `${placeResult.reviews[i].author_name}:  ${placeResult.reviews[i].text} Rating: ${placeResult.reviews[i].rating} `;
+            infoPane.appendChild(reviews);    
+        }
+        
+    }
 }
+
+
 //End of Google CodeLabs code snippet//
 
 function toggleGroup(type) {
