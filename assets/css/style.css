@@ -251,7 +251,7 @@ div .info-card {
     padding-left: 1rem;
     padding-bottom: .5rem;
     font-family: "Roboto", sans-serif;
-    font-size: 6vw;
+    font-size: 10px;
     font-weight: bold;
     color: #640e27;
 }
@@ -261,7 +261,7 @@ div .info-card {
     color: #640e27;
     list-style-type: none;
     font-family: "Roboto", sans-serif;
-    font-size: 6vw;
+    font-size: 8px;
     margin-top: 1rem;
     padding-left: 3rem;
     padding-right: 1rem;
@@ -290,7 +290,8 @@ label {
 }
 
 .form-check-inline{
-    padding-left: 4rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     margin-right: 0;
 }
 
@@ -321,7 +322,6 @@ https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-j
     background-color: #ffffff;
     position: relative;
     right: 0.5%;
-    top: 7.5%;
     z-index: 1;
     overflow-x: hidden;
     transition: all .2s ease-out;
@@ -755,11 +755,16 @@ aside p {
     .info-card {
         align-items: center;
         margin: 0;
-        float: none;   
+        float: none;
+    }
+
+    .card-title-info {
+        font-size: 20px;
     }
 
     .list-group-item-info {
         padding-left: 0;
+        font-size: 16px;
     }
     
     .content {
@@ -790,16 +795,36 @@ aside p {
     }
     
     #panel {
-        float: none;
-        position: absolute;
-        top: 90%;
-        z-index: 0;
-        right: auto;
-        height: fit-content;
+        display: none;
     }
 
-    .open{
-        max-height: 500px;
+    .form-check-inline {
+        display: contents;
+    }
+
+    .form-check-inline
+    .form-check-input {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .form-check-label {
+        margin-right: 1rem;
+    }
+}
+
+@media only screen and (max-width: 414px) and (orientation: landscape) {
+    #panel {
+        display: block;
+    }
+
+    .card-title-info {
+        font-size: 20px;
+    }
+
+    .list-group-item-info {
+        padding-left: 0;
+        font-size: 16px;
     }
 }
 
@@ -875,6 +900,19 @@ aside p {
         margin-bottom: 20px;
         
     }
+
+    .info-card{
+        margin-left: 0;
+    }
+
+    .card-title-info {
+        font-size: 20px;
+    }
+
+    .list-group-item-info {
+        padding-left: 0;
+        font-size: 16px;
+    }
 }
 
 @media only screen and (max-width: 540px) and (min-width: 500px) {
@@ -892,3 +930,19 @@ aside p {
         float: none;
     }
 }
+
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+    .info-card {
+        margin-left: 1.5rem;
+    }
+
+    .card-title-info {
+        font-size: 20px;
+    }
+
+    .list-group-item-info {
+        font-size: 16px;
+        padding-left: 0;
+    }
+}
+
