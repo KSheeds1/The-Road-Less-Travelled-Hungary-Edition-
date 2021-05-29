@@ -116,12 +116,12 @@ function initializeBudapest() {
     const input = document.getElementById("pac-input");
     const searchBox = new google.maps.places.SearchBox(input);
     mapBudapest.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-    const autocomplete = new google.maps.places.Autocomplete(input, options)
-
-    mapBudapest.addListener("bounds_changed", () => {
-        searchBox.setBounds(mapBudapest.getBounds());
+    const autocomplete = new google.maps.places.Autocomplete(input, options);
+    
+    currentMap.addListener("bounds_changed", () => {
+        searchBox.setBounds(currentMap.getBounds());
     });
-
+    
     let budapestMarkers = [];
 
     searchBox.addListener("places_changed", () => {
@@ -184,7 +184,7 @@ function initializeBudapest() {
 
             count++;
         });
-        currentMap.fitBounds(bounds);
+        mapBudapest.fitBounds(bounds);
     });
 }
 
@@ -226,7 +226,7 @@ function initializeKeszthely() {
     mapKeszthely.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
     const autocomplete = new google.maps.places.Autocomplete(input, options)
 
-    mapKeszthely.addListener("bounds_changed", () => {
+    currentMap.addListener("bounds_changed", () => {
         searchBox.setBounds(currentMap.getBounds());
     });
 
@@ -292,7 +292,7 @@ function initializeKeszthely() {
 
             count++;
         });
-        currentMap.fitBounds(bounds);
+       currentMap.fitBounds(bounds);
     });
 } 
 
@@ -378,7 +378,7 @@ function initializeSiofok() {
             );
 
             siofokMarkers[count].placeResult = place;
-            
+
             google.maps.event.addListener(siofokMarkers[count], "click", showInfoWindow);
             google.maps.event.addListener(siofokMarkers[count], "click", () => {
                 let request = {
@@ -552,8 +552,8 @@ function buildIWContent(place) {
     }
 }    
 
-//This code snippet was sourced from a Google CodeLabs tutorial 'Build a nearby business search service with Google Maps Platform - Show Place Details on Demand'.//
-//https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-js#4  - Slight alterations have been made for it to fit the purposes of this site.//
+ //This code snippet was sourced from a Google CodeLabs tutorial 'Build a nearby business search service with Google Maps Platform - Show Place Details on Demand'.//
+ //https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-js#4  - Slight alterations have been made for it to fit the purposes of this site.//
 
 function showDetails(placeResult, marker, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
