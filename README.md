@@ -2,8 +2,10 @@
 *The Road Less Travelled* is an interactive front-end site that aims to help users find their perfect Hungarian holiday destination. *We've done the leg work so you don't have to!* Browse the site to discover our top four destinations around Hungary to find your dream holiday destination. Our site provides you with up-to-date information on accommodation, amenities, and the best bars and restaurants in the area! We've provided all the information that you'll need in one place to research holiday destinations around Hungary to help you choose your perfect destination.  
 
 # Demo
-Access the live site [here]()
-  
+Access the live site [here](https://ksheeds1.github.io/The-Road-Less-Travelled-Hungary-Edition-/)
+
+
+![Demo responsive Images](assets/images/demo-image/Am-I-Responsive-TRLT.png)
 
 # UX
 ## User Stories
@@ -63,37 +65,73 @@ The required content for the website is:
 
 ## Skeleton: 
 ### Landing page wireframes:
-[Landing Page desktop]()
+[Landing Page desktop](assets/wireframes/landing-page-desktop.png)
 
-[Landing Page mobile]()
+[Landing Page mobile](assets/wireframes/landing-page-mobile.png)
+
+[Landing Page tablet](assets/wireframes/landing-page-tablet.png)
 
 ### Budapest page wireframes:
-[Budapest Page desktop]()
+[Budapest Page desktop](assets/wireframes/budapest-page-desktop.png)
 
-[Budapest Page mobile]()
+[Budapest Page mobile](assets/wireframes/budapest-page-mobile.png)
+
+[Budapest Page tablet](assets/wireframes/budapest-page-tablet.png)
 
 ### Pecs page wireframes:
-[Pecs Page desktop]()
+[Pecs Page desktop](assets/wireframes/pecs-page-desktop.png)
 
-[Pecs Page mobile]()
+[Pecs Page mobile](assets/wireframes/pecs-page-mobile.png)
+
+[Pecs Page tablet](assets/wireframes/pecs-page-tablet.png)
 
 
 ### Siofok page wireframes:
-[Siofok Page desktop]()
+[Siofok Page desktop](assets/wireframes/siofok-page-desktop.png)
 
-[Siofok Page mobile]()
+[Siofok Page mobile](assets/wireframes/siofok-page-mobile.png)
+
+[Siofok Page tablet](assets/wireframes/siofok-page-tablet.png)
 
 ### Keszthely page wireframes:
-[Keszthely Page desktop]()
+[Keszthely Page desktop](assets/wireframes/contact-page-desktop.png)
 
-[Keszthely Page mobile]()
+[Keszthely Page mobile](assets/wireframes/contact-page-mobile.png)
+
+[Keszthely Page tablet](assets/wireframes/contact-page-tablet.png)
 
 ### Contact page wireframes:
 [Contact Page desktop]()
 
 [Contact Page mobile]()
 
+[Contact Page tablet]()
+
+### About page wireframes: 
+[About Page desktop](assets/wireframes/about-page-desktop.png)
+
+[About Page mobile](assets/wireframes/about-page-mobile.png)
+
+[About Page tablet](assets/wireframes/about-page-tablet.png)
+
 ## Surface:
+The majority of content on the site has been aligned centrally, this remains consistent across all viewports. The navigation bar is fixed in the default position and allows the user to quickly identify the different sections of the site. 
+
+### Color Scheme: 
+The site owner chose three contrasting colors for the site's color palette. #fffff has been used as the background color for several of the site's pages to provide a clean, contrasting background to the content.
+#0b5345 has been used for both buttons and the input labels for the checkboxes found above the maps as well as for some content. 
+A linear gradient (#0b5345 0%, #ffffff 93%) utilises the main two colors used through site and has been applied to both the navigation bar and the footer to give the illusion that the nav-bar and footer are gently fading into the body.
+#640e27 has been added to provide a contrasting accent to a the color scheme. It features prominently throughout the text across the site. 
+
+### Typography: 
+The site owner chose two fonts to use across the site, "Rock Salt" and "Roboto". Rock Salt is primarily used for headings as the font is only available in uppercase, it was chosen for its almost handwritten quality. For the site owner, this font pays homage to the handwritten research done prior to the trip that inspired this site.
+Roboto was chosen for its clean and legible form, as a popular choice on Google Fonts, the site owner believed it would cultivate a sense of familiarity amongst users. As well as providing a good contrast to Rock Salt. 
+
+### Images: 
+The site owner made use of images as backgrounds for two pages of the site contact.html and about.html. The use of images across a travel site is pivotal to its purpose. All images used throughout the site belong to the owner and were taken while travelling across Hungary in the Autumn of 2019. 
+The hero image the site opens on was chosen for its perspective and depth, the colors are muted slightly by the overlay added to make sure the text isn't lost in the image. 
+Image carousels have been utilized across the site to provide further visual context about each of the destinations to the user. 
+
 
 
 # Features
@@ -248,9 +286,6 @@ In the hope of still being able to provide site users with as much information a
 This provided a much cleaner solution to the issue at hand and also broadened the scope of data available to the user as well as increasing interactivity with the map. Used in conjunction with 'getDetails' the user can click on the markers and the side bar displays additional information for each place.id.
 
 
-
-
-
 **EmailJS**
 
 The developer initially set up the EmailJS API using the steps outlined in the walkthrough video for the EmailJS lesson from the interactive frontend module and gained functionality. 
@@ -264,6 +299,77 @@ This finally cleared the status code 400 and functionality was established.
 The developer initally began with a standard alert to confirm submission of the email with the user but chose to build a custom alert to convey the message and allow for cross site continuity in styling, using a jQuery dialog widget 
 Using an on click event listener to trigger the alert on click of the 'submit' button, this only prompted the dialog widget to show prior to the email being sent. I twas also noted that the alert showed even if the form hadn't been filled in and therefore validated.
 This was eventually solved once the developer passed the on click listener event through the function for successful submission. The form then had to be filled out and validated as well as having confirmation of email submission before launching the custom alert. 
+
+## User Stories tested:
+
+* UST1: 
+> *As a user, I want to be able to navigate the site quickly and easily to find what I am looking for.*
+
+Users can easily identify the different sections of the website using the navigation bar, placed in the default fixed position it is accessible to users at all times to quickly navigate across the site.
+To visit the destinations site, the user can simply click on destinations, or to get in contact with The Road Less travelled team, they can simply click on the Contact Us page.
+
+
+![User Story 1](assets/images/user-stories-tested/UST1.png)
+
+* UST2:
+> *As a user, I want to be able to ascertain the purpose of the site.*
+
+The site's purpose is explained to the user on the landing page just above the map. It encourages the user to click on a marker to learn more about a certain location, once a marker is clicked the user is 
+relocated to a page dedicated to that location where they can explore the options available to them using the map, look at photos and learn about their potential holiday destination. 
+
+
+![User Story 2](assets/images/user-stories-tested/UST2.png)
+
+* UST3:
+> *I have already been to Budapest twice and I want to know what other kind of locations are available to me if I don't want to visit capital again?*
+
+Users can look at the other featured locations offered at the bottom of each location page, they can simply click on the card to explore a different direction or click on the word map to be brought back to the destinations map.
+
+
+![User Story 3](assets/images/user-stories-tested/UST3.png)
+
+* UST4:
+> *As an experienced traveller, I like to research my trips in advance so that I can find a travel destination that isn’t overrun with tourists.*
+
+Each location comes with a 'perfect getaway for' card which gives the user an idea of what kind of trip this location will offer, busy capital city, cultural & historical hotspot. They can also get a feel for each location from the brief aside 
+providing contextual info. 
+
+![User Story 4](assets/images/user-stories-tested/UST4.png)
+
+* UST5:
+> *As a user, I like to see the amenities available in an area or location I'm researching displayed in a suitable format.*
+
+The implementation of the search bar along side the map broadens the scope of information available to the users. By simply typing bar, hotel, pizza, attractions into the search bar the map will return the results within the surrounding location.
+
+![User Story 5](assets/images/user-stories-tested/UST5.png)
+
+* UST6:
+> *I'm booking a surprise getaway for my significant other and I want to know more than just the locations of the different accommodation options offered in Budapest, how can I find out more?*
+
+By simply typing in 'hotels' into the search bar the map produces all types of accommodation available in the area, the users can click on each marker to find out more about the hotel like its price rating, address or reviews. 
+![User Story 6](assets/images/user-stories-tested/UST6.png)
+
+* UST7:
+> *As a user, I would like to be able to visualise the location I'm researching, getting to see images of the location I may potentially visit helps to inform my decision.*
+
+Each location comes with a carousel of images from each of the location so users can get a look at their potential holiday getaway, the carousel loops through the images and users can flick back and forth between them too.
+
+![User Story 7](assets/images/user-stories-tested/UST7.png)
+
+*UST8:
+> *I have been exploring the site and have a query, the answer doesn’t seem to be available on the website, I would like to find out more about it, is this possible?*
+
+Users can reach out to the Road Less Travelled team by clicking 'Contact Us' in the nav-bar and are instantly redirected to our contact form where they can simply fill it out and send it!
+
+![User Story 8](assets/images/user-stories-tested/UST8.png)
+
+*UST9:
+> *As a user, I want to be able to check out social media accounts associated with site to keep up to date with new information and locations.*
+
+The social media accounts linked to the site are available in the footer, simply scroll to the bottom of any of the pages and click on the icon of your chosen social media platform to follow us.
+
+![User Story 9](assets/images/user-stories-tested/UST9.png)
+
 
 
 
