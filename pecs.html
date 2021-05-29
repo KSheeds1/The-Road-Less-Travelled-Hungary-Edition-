@@ -48,29 +48,8 @@
     <section class="container-fluid" id="map-pecs">
         <div class="row justify-content-center">
             <div class="col-xs-6 col-md-9">
-               <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" onclick="toggleGroup('lodging')" id="accommodation" value="option1">
-                    <label class="form-check-label" for="inlineCheckbox1">Accommodation</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" onclick="toggleGroup('tourist_attraction')" id="attractions" value="option2">
-                    <label class="form-check-label" for="inlineCheckbox2">Attractions</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" onclick="toggleGroup('restaurant')" id="restaurants" value="option3">
-                    <label class="form-check-label" for="inlineCheckbox3">Restaurants</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" onclick="toggleGroup('bar')" id="bars" value="option4">
-                    <label class="form-check-label" for="inlineCheckbox4">Bars</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" onclick="toggleGroup('clothing_store')" id="Shopping" value="option5">
-                    <label class="form-check-label" for="inlineCheckbox5">Shopping</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input type="button" id="reset" class="reset-btn" value="Reset">
-                    <span class="sr-only">Reset Checkbox Button</span>
+               <div>
+                    <input type="text" id="pac-input" class="controls" placeholder="Search hotels, bars, attractions and more!">
                 </div>
             </div>
         </div>
@@ -79,6 +58,28 @@
                 <!--Panel is sourced from Google CodeLabs 'Build a nearby business search service' tutorial: https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-js#4 -->
                 <div id="panel"></div>
                 <div id="mapPecs"></div>
+                <div class="info-container">
+                    <div id="info-content">
+                        <table>
+                            <tr id="iw-url-row" class="iw_table_row">
+                                <td id="iw-icon" class="iw_table_icon"></td>
+                                <td id="iw-url"></td>
+                            </tr>
+                            <tr id="iw-address-row" class="iw_table_row">
+                                <td class="iw_attribute_name">Address:</td>
+                                <td id="iw-address"></td>
+                            </tr>
+                            <tr id="iw-phone-row" class="iw_table_row">
+                                <td class="iw_attribute_name">Telephone:</td>
+                                <td id="iw-phone"></td>
+                            </tr>
+                            <tr id="iw-rating-row" class="iw_table_row">
+                                <td class="iw_attribute_name">Rating:</td>
+                                <td id="iw-rating"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
