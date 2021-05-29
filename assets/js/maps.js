@@ -65,7 +65,7 @@ function bindInfoWindow(marker, map, infowindow, description){
 
     marker.addListener("mouseout", function() {
         infowindow.close();
-    })
+    });
 }
 
 //This code snippet was sourced from a Google CodeLabs tutorial 'Build a nearby business search service with Google Maps Platform - Show Place Details on Demand'.//
@@ -172,7 +172,7 @@ function initializeBudapest() {
 
                 service = new google.maps.places.PlacesService(currentMap);
                 service.getDetails(request, (placeResult, status) => {
-                    showDetails(placeResult, budapestMarkers, status)
+                    showDetails(placeResult, budapestMarkers, status);
                 });
             });
 
@@ -224,7 +224,7 @@ function initializeKeszthely() {
     const input = document.getElementById("pac-input");
     const searchBox = new google.maps.places.SearchBox(input);
     mapKeszthely.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-    const autocomplete = new google.maps.places.Autocomplete(input, options)
+    const autocomplete = new google.maps.places.Autocomplete(input, options);
 
     currentMap.addListener("bounds_changed", () => {
         searchBox.setBounds(currentMap.getBounds());
@@ -280,7 +280,7 @@ function initializeKeszthely() {
 
                 service = new google.maps.places.PlacesService(currentMap);
                 service.getDetails(request, (placeResult, status) => {
-                    showDetails(placeResult, keszthelyMarkers, status)
+                    showDetails(placeResult, keszthelyMarkers, status);
                 });
             });
 
@@ -332,7 +332,7 @@ function initializeSiofok() {
     const input = document.getElementById("pac-input");
     const searchBox = new google.maps.places.SearchBox(input);
     mapSiofok.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-    const autocomplete = new google.maps.places.Autocomplete(input, options)
+    const autocomplete = new google.maps.places.Autocomplete(input, options);
 
     currentMap.addListener("bounds_changed", () => {
         searchBox.setBounds(currentMap.getBounds());
@@ -388,7 +388,7 @@ function initializeSiofok() {
 
                 service = new google.maps.places.PlacesService(currentMap);
                 service.getDetails(request, (placeResult, status) => {
-                    showDetails(placeResult, siofokMarkers, status)
+                    showDetails(placeResult, siofokMarkers, status);
                 });
             });
 
@@ -440,7 +440,7 @@ function initializePecs() {
     const input = document.getElementById("pac-input");
     const searchBox = new google.maps.places.SearchBox(input);
     mapPecs.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-    const autocomplete = new google.maps.places.Autocomplete(input, options)
+    const autocomplete = new google.maps.places.Autocomplete(input, options);
 
     currentMap.addListener("bounds_changed", () => {
         searchBox.setBounds(currentMap.getBounds());
@@ -496,7 +496,7 @@ function initializePecs() {
 
                 service = new google.maps.places.PlacesService(currentMap);
                 service.getDetails(request, (placeResult, status) => {
-                    showDetails(placeResult, pecsMarkers, status)
+                    showDetails(placeResult, pecsMarkers, status);
                 });
             });
 
@@ -622,7 +622,7 @@ function showDetails(placeResult, marker, status) {
             let author_name = placeResult.reviews[i].author_name;
             let text = placeResult.reviews[i].text;
             let rating = placeResult.reviews[i].rating;
-            let reviews = document.createElement('p')
+            let reviews = document.createElement('p');
             reviews.classList.add('details');
             reviews.textContent = `${placeResult.reviews[i].author_name}:  ${placeResult.reviews[i].text} Rating: ${placeResult.reviews[i].rating} `;
             infoPane.appendChild(reviews);    
