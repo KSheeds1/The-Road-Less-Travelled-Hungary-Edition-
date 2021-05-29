@@ -512,6 +512,9 @@ function initializePecs() {
     });
 }
 
+
+//This code was sourced from a Stack OverFlow question and altered to fit the purpose of this site.// 
+//https://stackoverflow.com/questions/44225974/how-can-i-add-info-window-in-places-searchbox//
 function showInfoWindow() {
     let marker = this;
     places.getDetails({placeId: marker.placeResult.place_id},
