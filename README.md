@@ -228,7 +228,7 @@ To achieve the desired functionality, an event listener was added to the markers
 
 **Multiple maps and creating markers**
 
-The developer chose to initialise the maps separately, creating an initialise function for each maP. However, upon creating of the fifth and final map a bug was found. 
+The developer chose to initialise the maps separately, creating an initialise function for each map. However, upon creating of the fifth and final map a bug was found. 
 Four of the location maps were initialised and set up to display the request of restaurant to trial the functionality of the maps. Each map was initialised one at a time and checked to make sure that each map was displaying markers as another map was added. 
 Following the initialisation of the final map, all markers from all maps bar the final map had disappeared. The error being thrown in the console referencing the final map initialised. 
 Upon further inspection, the bug was narrowed down to the "createMarker" functions, as the developer chose to initialise the maps separately, each contained their own "createMarker" function which effectively led to the function being redefined each time. 
@@ -236,6 +236,19 @@ This clarified why the markers were only displaying on the last map initialised.
 Each callback function was moved inside the initialisation functions, where the createMarker function was called, passing the results as a parameter.
 While this resolved the issue and the markers were displaying on each map, a new error was thrown, indicating there was an issue with the order in which elements were being loaded. Further inspection led to the removal of the "onload=initMaps" attribute from the body tag of index.html. 
 This attribute attempted to load the map div, which had not been created at the time.     
+
+
+**From Text Search to Autocomplete Search Bar**
+The developer initally began this project using the Places 'Text Search' to retrieve data from both the Maps & Places APIs and did so successfully. In order to provide users with as many amenities as possible the developer passed five 'types' within one request and stored the markers for each of the types the developer wanted to display on the maps. 
+To create the markers, the results from the text search request were passed to the function 'createMarker'. The results and types were then iterated through a nested for loop  the results  paswsed from createMarker were pushed into the object. 
+was pushed into an Object. The aim was to toggle between the different amenities using either radio buttons or checkboxes, in order to do this the input elements were added to the class 'selectedAmenities' and looped through to get their ID. Using the ID as a key for the object storing the marker data, the 'checked' 
+selectedAmenity was then passed to an empty an empty array 'filteredAmenityLocations' containing the relevant data or markers to be displayed on the map. The developer then iterated through filteredAmenityLocations and attempted to create markers using the results of the loop and setting the markers as visible.
+However despite multiple attempts to display the markers the developer had no such luck. This is most likely due to the strict structure of the text search requests and the attempt to display more than one 'type'.
+In the hope of still being able to provide site users with as much information as possible, the developer chose to remove the Places Text Search in exchange for the Places Autocomplete Search Bar widget. 
+This provided a much cleaner solution to the issue at hand and also broadened the scope of data available to the user as well as increasing interactivity with the map. Used in conjunction with 'getDetails' the user can click on the markers and the side bar displays additional information for each place.id.
+
+
+
 
 
 **EmailJS**
@@ -247,6 +260,10 @@ The addition of an error/success console.log provided more information. Throwing
 While attempting to debug the issue, it was noticed that parts pf the HTML for the form was set up in line with the older version of EmailJS, this was altered inline with the documentation, as well as the javascript file "sendEmail.js" being altered using the newer version of "email.sendForm" method to collect the values of the form and pass them to the specified template, with the method returning the promise. 
 This finally cleared the status code 400 and functionality was established.
 
+**Triggering the customAlert upon email submission**
+The developer initally began with a standard alert to confirm submission of the email with the user but chose to build a custom alert to convey the message and allow for cross site continuity in styling, using a jQuery dialog widget 
+Using an on click event listener to trigger the alert on click of the 'submit' button, this only prompted the dialog widget to show prior to the email being sent. I twas also noted that the alert showed even if the form hadn't been filled in and therefore validated.
+This was eventually solved once the developer passed the on click listener event through the function for successful submission. The form then had to be filled out and validated as well as having confirmation of email submission before launching the custom alert. 
 
 
 
