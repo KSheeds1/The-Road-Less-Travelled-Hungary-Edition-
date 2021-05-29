@@ -85,7 +85,16 @@ function initializeBudapest() {
     let budapest = new google.maps.LatLng(47.4985097, 19.0485491);
     mapBudapest = new google.maps.Map(document.getElementById("mapBudapest"), {
         zoom: 14,
-        center: budapest
+        center: budapest,
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+            style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+            position: google.maps.ControlPosition.LEFT_BOTTOM
+        },
+        fullscreenControl: true,
+        fullscreenControlOptions: {
+            position: google.maps.ControlPosition.TOP_LEFT
+        }
     });
     
     //Elements of this code was sourced from a Google CodeLabs tutorial 'Build a nearby business search service with Google Maps Platform - Show Place Details on Demand'.//
@@ -175,19 +184,25 @@ function initializeBudapest() {
 
             count++;
         });
-        mapBudapest.fitBounds(bounds);
+        currentMap.fitBounds(bounds);
     });
 }
-
-   
-
 
 //Initialisation of map located on keszthely.html
 function initializeKeszthely() { 
     let keszthely = new google.maps.LatLng(46.7498531, 17.1719147);
     mapKeszthely = new google.maps.Map(document.getElementById("mapKeszthely"), {
         zoom: 12,
-        center: keszthely
+        center: keszthely,
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+            style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+            position: google.maps.ControlPosition.LEFT_BOTTOM
+        },
+        fullscreenControl: true,
+        fullscreenControlOptions: {
+            position: google.maps.ControlPosition.TOP_LEFT
+        }
     });
 
     //Elements of this code was sourced from a Google CodeLabs tutorial 'Build a nearby business search service with Google Maps Platform - Show Place Details on Demand'.//
@@ -277,7 +292,7 @@ function initializeKeszthely() {
 
             count++;
         });
-        mapKeszthely.fitBounds(bounds);
+        currentMap.fitBounds(bounds);
     });
 } 
 
@@ -286,7 +301,16 @@ function initializeSiofok() {
     let siofok = new google.maps.LatLng(46.9019145, 18.0447842);
     mapSiofok = new google.maps.Map(document.getElementById("mapSiofok"), {
         zoom: 13,
-        center: siofok
+        center: siofok,
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+            style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+            position: google.maps.ControlPosition.LEFT_BOTTOM
+        },
+        fullscreenControl: true,
+        fullscreenControlOptions: {
+            position: google.maps.ControlPosition.TOP_LEFT
+        }
     });
 
     //Elements of this code was sourced from a Google CodeLabs tutorial 'Build a nearby business search service with Google Maps Platform - Show Place Details on Demand'.//
@@ -354,7 +378,7 @@ function initializeSiofok() {
             );
 
             siofokMarkers[count].placeResult = place;
-
+            
             google.maps.event.addListener(siofokMarkers[count], "click", showInfoWindow);
             google.maps.event.addListener(siofokMarkers[count], "click", () => {
                 let request = {
@@ -386,6 +410,15 @@ function initializePecs() {
     mapPecs = new google.maps.Map(document.getElementById("mapPecs"), {
         zoom: 14,
         center: pecs,
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+            style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+            position: google.maps.ControlPosition.LEFT_BOTTOM
+        },
+        fullscreenControl: true,
+        fullscreenControlOptions: {
+            position: google.maps.ControlPosition.TOP_LEFT
+        }
     });
 
     //Elements of this code was sourced from a Google CodeLabs tutorial 'Build a nearby business search service with Google Maps Platform - Show Place Details on Demand'.//
@@ -518,6 +551,9 @@ function buildIWContent(place) {
         document.getElementById('iw-rating-row').style.display = 'none';
     }
 }    
+
+//This code snippet was sourced from a Google CodeLabs tutorial 'Build a nearby business search service with Google Maps Platform - Show Place Details on Demand'.//
+//https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-js#4  - Slight alterations have been made for it to fit the purposes of this site.//
 
 function showDetails(placeResult, marker, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
