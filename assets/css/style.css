@@ -447,7 +447,7 @@ p.details {
 }
 
 #mapBudapest{
-    height: 100%;
+    min-height: 400px;
     margin-bottom: 5rem;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.342);
 }
@@ -746,7 +746,7 @@ aside p {
     background: url("../images/about-pg-image/about-pg-img.jpg") no-repeat bottom right fixed;
     background-color: #D0ECE7;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -780,9 +780,6 @@ aside p {
         height: 100%;
     }
 
-    #about-us {
-        height: 84vh;
-    }
 }
 
 @media only screen and (max-width: 375px) {
@@ -854,20 +851,6 @@ aside p {
     #panel {
         display: none;
     }
-
-    .form-check-inline {
-        display: contents;
-    }
-
-    .form-check-inline
-    .form-check-input {
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    .form-check-label {
-        margin-right: 1rem;
-    }
 }
 
 @media only screen and (max-width: 414px) and (orientation: landscape) {
@@ -910,10 +893,6 @@ aside p {
 
     aside p {
         font-size: 18px;
-    }
-
-    #about-us {
-        height: 84vh;
     }
 }
 
@@ -970,6 +949,11 @@ aside p {
         padding-left: 0;
         font-size: 16px;
     }
+
+    
+    #pac-input {
+        width: 200px;
+    }
 }
 
 @media only screen and (max-width: 540px) and (min-width: 500px) {
@@ -1000,5 +984,11 @@ aside p {
     .list-group-item-info {
         font-size: 16px;
         padding-left: 0;
+    }
+}
+
+@media only screen and (max-width: 280px) {
+    .block-divider {
+        width: auto;
     }
 }
