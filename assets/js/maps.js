@@ -1,5 +1,6 @@
 let currentMap;
 
+
 function initMaps() {
     initMap();
     initializeBudapest();
@@ -7,8 +8,6 @@ function initMaps() {
     initializeSiofok();
     initializePecs();
 }
-
-
 
 //Initialisation of initmap located in index.html
 function initMap() {
@@ -74,10 +73,12 @@ function bindInfoWindow(marker, map, infowindow, description){
 let infoPane;
 let infowindow;
 let currentInfoWindow;
-
+let autocomplete;
+let places;
+let service;
+let getDetails;
 //End of code snippet//
 
-var budapestMarkers = { 'restaurant':[], 'bar':[], 'lodging':[], 'tourist_attraction':[], 'department_store':[], }
 
 //Initialisation of map located on budapest.html
 function initializeBudapest() {
@@ -86,50 +87,106 @@ function initializeBudapest() {
         zoom: 14,
         center: budapest
     });
-
+    
     //Elements of this code was sourced from a Google CodeLabs tutorial 'Build a nearby business search service with Google Maps Platform - Show Place Details on Demand'.//
     //https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-js#4 //
 
     infoPane = document.getElementById('panel');
     currentMap = mapBudapest;
-    infowindow = new google.maps.InfoWindow;
-    currentInfoWindow = infowindow;
-
+    infoWindow = new google.maps.InfoWindow({
+        content: document.getElementById("info-content")
+    });
+    places = new google.maps.places.PlacesService(mapBudapest);
+    /*currentInfoWindow = infowindow;*/
     //End of sourced code//
-
-    let request = {
-        location: budapest,
-        radius: '8046',
-        type: ['restaurant', 'tourist_attraction', 'bar', 'department_store', 'lodging']
+    const options = {
+        componentRestrictions: {country: "hungary"},
+        types: ["restaurant", "lodging", "bar", "shopping_mall", "tourist_attraction", "establishment"]
     };
 
-    let types = ["restaurant", "tourist_attraction", "bar", "department_store", "lodging"];
+    const input = document.getElementById("pac-input");
+    const searchBox = new google.maps.places.SearchBox(input);
+    mapBudapest.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    const autocomplete = new google.maps.places.Autocomplete(input, options)
 
-    service = new google.maps.places.PlacesService(mapBudapest);
-    service.textSearch(request, callback);
+    mapBudapest.addListener("bounds_changed", () => {
+        searchBox.setBounds(mapBudapest.getBounds());
+    });
 
-    function callback(results, status) {
-        if (status == google.maps.places.PlacesServiceStatus.OK) {
-            for (let i = 0; i < types.length; i++) {
-                for (let j = 0; j < results.length; j++) {
-                    let place = results[j]
-                    budapestMarkers[request.type[i]].push(createMarker(results[j]));
-                }
-            }
-            
-            mapBudapest.setCenter(results[0].geometry.location);
+    let budapestMarkers = [];
+
+    searchBox.addListener("places_changed", () => {
+        const places = searchBox.getPlaces();
+        console.log(places);
+
+        if (places.length == 0) {
+            return;
         }
-    }
+        budapestMarkers.forEach((marker) => {
+            marker.setMap();
+        });
+        budapestMarkers = [];
+
+        const bounds = new google.maps.LatLngBounds();
+        let count = 0;
+        places.forEach((place) => {
+            if (!place.geometry || !place.geometry.location) {
+                console.log("Returned place contains no geometry");
+                return;
+            }
+            const icon = {
+                url: place.icon,
+                size: new google.maps.Size(71, 71),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(17, 34),
+                scaledSize: new google.maps.Size(25, 25),
+            };
+            
+            budapestMarkers.push(
+                new google.maps.Marker({
+                    map: mapBudapest,
+                    icon,
+                    title: place.name,
+                    position: place.geometry.location,
+                    animation: google.maps.Animation.DROP
+                })
+            );
+
+            budapestMarkers[count].placeResult = place;
+
+            google.maps.event.addListener(budapestMarkers[count], "click", showInfoWindow);
+            google.maps.event.addListener(budapestMarkers[count], "click", () => {
+                let request = {
+                    placeId: place.place_id,
+                    fields: ['name', 'formatted_address', 'geometry', 'rating', 'price_level', 'review', 'website', 'photos']
+                };
+
+                service = new google.maps.places.PlacesService(currentMap);
+                service.getDetails(request, (placeResult, status) => {
+                    showDetails(placeResult, budapestMarkers, status)
+                });
+            });
+
+            if (place.geometry.viewport) {
+                bounds.union(place.geometry.viewport);
+            } else {
+                bounds.extend(place.geometry.location);
+            }
+
+            count++;
+        });
+        mapBudapest.fitBounds(bounds);
+    });
 }
 
+   
+
+
 //Initialisation of map located on keszthely.html
-
-var keszthelyMarkers = { 'restaurant':[], 'bar':[], 'lodging':[], 'tourist_attraction':[], 'department_store':[], }
-
 function initializeKeszthely() { 
     let keszthely = new google.maps.LatLng(46.7498531, 17.1719147);
     mapKeszthely = new google.maps.Map(document.getElementById("mapKeszthely"), {
-        zoom: 14,
+        zoom: 12,
         center: keszthely
     });
 
@@ -138,38 +195,93 @@ function initializeKeszthely() {
 
     infoPane = document.getElementById('panel');
     currentMap = mapKeszthely;
-    infowindow = new google.maps.InfoWindow;
-    currentInfoWindow = infowindow;
-    
+    infoWindow = new google.maps.InfoWindow({
+        content: document.getElementById("info-content")
+    });    
+    places = new google.maps.places.PlacesService(currentMap);
     //End of sourced code//
 
-    let request = {
-        location: keszthely,
-        radius: '8046',
-        type: ['restaurant', 'tourist_attraction', 'bar', 'department_store', 'lodging']
+    const options = {
+        componentRestrictions: {country: "hungary"},
+        types: ["restaurant", "lodging", "bar", "shopping_mall", "tourist_attraction", "establishment"]
     };
 
-    let types = ["restaurant", "tourist_attraction", "bar", "department_store", "lodging"];
-    
-    service = new google.maps.places.PlacesService(mapKeszthely);
-    service.textSearch(request, callback);
+    const input = document.getElementById("pac-input");
+    const searchBox = new google.maps.places.SearchBox(input);
+    mapKeszthely.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    const autocomplete = new google.maps.places.Autocomplete(input, options)
 
-    function callback(results, status) {
-        if (status == google.maps.places.PlacesServiceStatus.OK) {
-            for (let i = 0; i < types.length; i++) {
-                for (let j = 0; j < results.length; j++) {
-                    let place = results[j];
-                    keszthelyMarkers[request.type[i]].push(createMarker(results[j]));
-                }
-            }
-            mapKeszthely.setCenter(results[0].geometry.location);
+    mapKeszthely.addListener("bounds_changed", () => {
+        searchBox.setBounds(currentMap.getBounds());
+    });
+
+    let keszthelyMarkers = [];
+
+    searchBox.addListener("places_changed", () => {
+        const places = searchBox.getPlaces();
+        console.log(places);
+
+        if (places.length == 0) {
+            return;
         }
-    } 
+        keszthelyMarkers.forEach((marker) => {
+            marker.setMap();
+        });
+        keszthelyMarkers = [];
+
+        const bounds = new google.maps.LatLngBounds();
+        let count = 0;
+        places.forEach((place) => {
+            if (!place.geometry || !place.geometry.location) {
+                console.log("Returned place contains no geometry");
+                return;
+            }
+            const icon = {
+                url: place.icon,
+                size: new google.maps.Size(71, 71),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(17, 34),
+                scaledSize: new google.maps.Size(25, 25),
+            };
+            
+            keszthelyMarkers.push(
+                new google.maps.Marker({
+                    map: mapKeszthely,
+                    icon,
+                    title: place.name,
+                    position: place.geometry.location,
+                    animation: google.maps.Animation.DROP
+                })
+            );
+
+            keszthelyMarkers[count].placeResult = place;
+
+            google.maps.event.addListener(keszthelyMarkers[count], "click", showInfoWindow);
+            google.maps.event.addListener(keszthelyMarkers[count], "click", () => {
+                let request = {
+                    placeId: place.place_id,
+                    fields: ['name', 'formatted_address', 'geometry', 'rating', 'price_level', 'review', 'website', 'photos']
+                };
+
+                service = new google.maps.places.PlacesService(currentMap);
+                service.getDetails(request, (placeResult, status) => {
+                    showDetails(placeResult, keszthelyMarkers, status)
+                });
+            });
+
+            if (place.geometry.viewport) {
+                bounds.union(place.geometry.viewport);
+            } else {
+                bounds.extend(place.geometry.location);
+            }
+
+            count++;
+        });
+        mapKeszthely.fitBounds(bounds);
+    });
 } 
 
 //Initialisation of map located on siofok.html
-var siofokMarkers = { 'restaurant':[], 'bar':[], 'lodging':[], 'tourist_attraction':[], 'department_store':[], }
-
 function initializeSiofok() {  
     let siofok = new google.maps.LatLng(46.9019145, 18.0447842);
     mapSiofok = new google.maps.Map(document.getElementById("mapSiofok"), {
@@ -182,43 +294,98 @@ function initializeSiofok() {
 
     infoPane = document.getElementById('panel');
     currentMap = mapSiofok;
-    infowindow = new google.maps.InfoWindow;
-    currentInfoWindow = infowindow;
-
+    infoWindow = new google.maps.InfoWindow({
+        content: document.getElementById("info-content")
+    });
+    places = new google.maps.places.PlacesService(currentMap);
     //End of sourced code//
 
-    let request = {
-        location: siofok,
-        radius: '8046',
-        type: ['restaurant', 'tourist_attraction', 'bar', 'department_store', 'lodging']
+    const options = {
+        componentRestrictions: {country: "hungary"},
+        types: ["restaurant", "lodging", "bar", "shopping_mall", "tourist_attraction", "establishment"]
     };
 
-    let types = ["restaurant", "tourist_attraction", "bar", "department_store", "lodging"];
+    const input = document.getElementById("pac-input");
+    const searchBox = new google.maps.places.SearchBox(input);
+    mapSiofok.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    const autocomplete = new google.maps.places.Autocomplete(input, options)
 
-    service = new google.maps.places.PlacesService(mapSiofok);
-    service.textSearch(request, callback);
+    currentMap.addListener("bounds_changed", () => {
+        searchBox.setBounds(currentMap.getBounds());
+    });
 
-    function callback(results, status) {
-        if (status == google.maps.places.PlacesServiceStatus.OK) {
-            for (let i = 0; i < types.length; i++) {
-                for (let j = 0; j < results.length; j++) {
-                     let place = results[j];
-                    siofokMarkers[request.type[i]].push(createMarker(results[j]));
-                }
-            }
-            mapSiofok.setCenter(results[0].geometry.location);
+    let siofokMarkers = [];
+
+    searchBox.addListener("places_changed", () => {
+        const places = searchBox.getPlaces();
+        console.log(places);
+
+        if (places.length == 0) {
+            return;
         }
-    }
-} console.log(siofokMarkers);
+        siofokMarkers.forEach((marker) => {
+            marker.setMap();
+        });
+        siofokMarkers = [];
+
+        const bounds = new google.maps.LatLngBounds();
+        let count = 0;
+        places.forEach((place) => {
+            if (!place.geometry || !place.geometry.location) {
+                console.log("Returned place contains no geometry");
+                return;
+            }
+            const icon = {
+                url: place.icon,
+                size: new google.maps.Size(71, 71),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(17, 34),
+                scaledSize: new google.maps.Size(25, 25),
+            };
+            
+            siofokMarkers.push(
+                new google.maps.Marker({
+                    map: mapSiofok,
+                    icon,
+                    title: place.name,
+                    position: place.geometry.location,
+                    animation: google.maps.Animation.DROP
+                })
+            );
+
+            siofokMarkers[count].placeResult = place;
+
+            google.maps.event.addListener(siofokMarkers[count], "click", showInfoWindow);
+            google.maps.event.addListener(siofokMarkers[count], "click", () => {
+                let request = {
+                    placeId: place.place_id,
+                    fields: ['name', 'formatted_address', 'geometry', 'rating', 'price_level', 'review', 'website', 'photos']
+                };
+
+                service = new google.maps.places.PlacesService(currentMap);
+                service.getDetails(request, (placeResult, status) => {
+                    showDetails(placeResult, siofokMarkers, status)
+                });
+            });
+
+            if (place.geometry.viewport) {
+                bounds.union(place.geometry.viewport);
+            } else {
+                bounds.extend(place.geometry.location);
+            }
+
+            count++;
+        });
+        currentMap.fitBounds(bounds);
+    });
+}
 
 //Initialisation of map located on pecs.html
-var pecsMarkers = { 'restaurant':[], 'bar':[], 'lodging':[], 'tourist_attraction':[], 'department_store':[], }
-
 function initializePecs() {  
     let pecs = new google.maps.LatLng(46.0751089, 18.2261525);
     mapPecs = new google.maps.Map(document.getElementById("mapPecs"), {
         zoom: 14,
-        center: pecs
+        center: pecs,
     });
 
     //Elements of this code was sourced from a Google CodeLabs tutorial 'Build a nearby business search service with Google Maps Platform - Show Place Details on Demand'.//
@@ -226,74 +393,143 @@ function initializePecs() {
 
     infoPane = document.getElementById('panel');
     currentMap = mapPecs;
-    infowindow = new google.maps.InfoWindow;
-    currentInfoWindow = infowindow;
-
+    infoWindow = new google.maps.InfoWindow({
+        content: document.getElementById("info-content")
+    });
+    places = new google.maps.places.PlacesService(currentMap);  
     //End of sourced code//
 
-    let request = {
-        location: pecs,
-        radius: '8046',
-        type: ['restaurant', 'tourist_attraction', 'bar', 'department_store', 'lodging']
+    const options = {
+        componentRestrictions: {country: "hungary"},
+        types: ["restaurant", "lodging", "bar", "shopping_mall", "tourist_attraction", "establishment"]
     };
 
-    let types = ["restaurant", "tourist_attraction", "bar", "department_store", "lodging"];
+    const input = document.getElementById("pac-input");
+    const searchBox = new google.maps.places.SearchBox(input);
+    mapPecs.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    const autocomplete = new google.maps.places.Autocomplete(input, options)
 
-    service = new google.maps.places.PlacesService(mapPecs);
-    service.textSearch(request, callback);
+    currentMap.addListener("bounds_changed", () => {
+        searchBox.setBounds(currentMap.getBounds());
+    });
 
-    function callback(results, status) {
-        if (status == google.maps.places.PlacesServiceStatus.OK) {
-            for (let i = 0; i < types.length; i++) {
-                for (let j = 0; j < results.length; j++) {
-                    let place = results[j];
-                    pecsMarkers[request.type[i]].push(createMarker(results[j]));
-                }  
-            }
-            mapPecs.setCenter(results[0].geometry.location);
+    let pecsMarkers = [];
+
+    searchBox.addListener("places_changed", () => {
+        const places = searchBox.getPlaces();
+        console.log(places);
+
+        if (places.length == 0) {
+            return;
         }
-    }
-}
-
-function createMarker(results) {
-    let marker = new google.maps.Marker({
-        currentMap,
-        position: results.geometry.location,
-    });
-    marker.setMap(currentMap);
-
-    //This code snippet was sourced from a Google CodeLabs tutorial 'Build a nearby business search service with Google Maps Platform - Show Place Details on Demand'.//
-    //https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-js#4  - Slight alterations have been made for it to fit the purposes of this site.//
-
-    google.maps.event.addListener(marker, 'click', () => {
-        let request = {
-            placeId: results.place_id,
-            fields: ['name', 'formatted_address', 'geometry', 'rating', 'price_level', 'review', 'website', 'photos']
-        };
-
-        service.getDetails(request, (placeResult, status) => {
-            showDetails(placeResult, marker, status)
+        pecsMarkers.forEach((marker) => {
+            marker.setMap();
         });
+        pecsMarkers = [];
+
+        const bounds = new google.maps.LatLngBounds();
+        let count = 0;
+        places.forEach((place) => {
+            if (!place.geometry || !place.geometry.location) {
+                console.log("Returned place contains no geometry");
+                return;
+            }
+            const icon = {
+                url: place.icon,
+                size: new google.maps.Size(71, 71),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(17, 34),
+                scaledSize: new google.maps.Size(25, 25),
+            };
+            
+            pecsMarkers.push(
+                new google.maps.Marker({
+                    map: mapPecs,
+                    icon,
+                    title: place.name,
+                    position: place.geometry.location,
+                    animation: google.maps.Animation.DROP
+                })
+            );
+
+            pecsMarkers[count].placeResult = place;
+
+            google.maps.event.addListener(pecsMarkers[count], "click", showInfoWindow);
+            google.maps.event.addListener(pecsMarkers[count], "click", () => {
+                let request = {
+                    placeId: place.place_id,
+                    fields: ['name', 'formatted_address', 'geometry', 'rating', 'price_level', 'review', 'website', 'photos']
+                };
+
+                service = new google.maps.places.PlacesService(currentMap);
+                service.getDetails(request, (placeResult, status) => {
+                    showDetails(placeResult, pecsMarkers, status)
+                });
+            });
+
+            if (place.geometry.viewport) {
+                bounds.union(place.geometry.viewport);
+            } else {
+                bounds.extend(place.geometry.location);
+            }
+
+            count++;
+        });
+        currentMap.fitBounds(bounds);
     });
-    return marker;
 }
+
+function showInfoWindow() {
+    let marker = this;
+    places.getDetails({placeId: marker.placeResult.place_id},
+    function(place, status) {
+        if (status !== google.maps.places.PlacesServiceStatus.OK) {
+            return;
+        }
+        infoWindow.open(currentMap, marker);
+        buildIWContent(place);
+    });
+}
+
+function buildIWContent(place) {
+    document.getElementById('iw-icon').innerHTML = '<img class="hotelIcon" ' + 'src="' + place.icon + '"/>';
+    document.getElementById('iw-url').innerHTML = '<b><a href="' + place.url +'">' + place.name + '</a></b>';
+    document.getElementById('iw-address').textContent = place.formatted_address;
+
+    if (place.formatted_phone_number) {
+        document.getElementById('iw-phone-row').style.display = '';
+        document.getElementById('iw-phone').textContent = place.formatted_phone_number;
+    } else {
+        document.getElementById('iw-phone-row').style.display = 'none';
+    }
+
+    if (place.rating) {
+        var ratingHtml = '';
+        for (let i = 0; i < 5; i++) {
+            if (place.rating < (i + 0.5)) {
+                ratingHtml += '&#10025;';
+            } else {
+                ratingHtml += '&#10029;'; 
+            }
+            document.getElementById('iw-rating-row').style.display = '';
+            document.getElementById('iw-rating').innerHTML = ratingHtml;
+        }
+    } else {
+        document.getElementById('iw-rating-row').style.display = 'none';
+    }
+}    
 
 function showDetails(placeResult, marker, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-        let placeInfowindow = new google.maps.InfoWindow();
-        let rating = "None";
-        if (placeResult.rating) rating = placeResult.rating;
-        placeInfowindow.setContent('<div><strong>' + placeResult.name +
-          '</strong><br>' + 'Rating: ' + rating + `\u272e` + '</div>');
-        placeInfowindow.open(marker.map, marker);
-        currentInfoWindow.close();
-        currentInfoWindow = placeInfowindow;
         showPanel(placeResult);
       } else {
         console.log('showDetails failed: ' + status);
     }
 
     function showPanel(placeResult) {
+        if (infoPane.classList.contains("open")) {
+            infoPane.classList.remove("open");
+        }
         while (infoPane.lastChild) {
             infoPane.removeChild(infoPane.lastChild);
         }
@@ -358,20 +594,8 @@ function showDetails(placeResult, marker, status) {
         
     }
 }
-
-
 //End of Google CodeLabs code snippet//
 
-function toggleGroup(type) {
-    for (let i = 0; i < budapestMarkers.length; i++) {
-        let marker = budapestMarkers[type][i];
-        if (marker.getVisible()) {
-            marker.setVisible(true);
-        } else {
-            marker.setVisible(false);
-        }
-    }
 
-}
 
 

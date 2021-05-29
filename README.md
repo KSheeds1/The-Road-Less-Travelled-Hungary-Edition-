@@ -11,13 +11,13 @@ Access the live site [here]()
 
 > *As a user, I want to be able to ascertain the purpose of the site.*
 
-> *As the head of my family, I want to research possible holiday destinations that suit all my needs and budget so that I can holiday in Europe with my family, but without the exorbitant price tag.*
+> *I have already been to Budapest twice and I want to know what other kind of locations are available to me if I don't want to visit capital again?*
 
 > *As an experienced traveller, I like to research my trips in advance so that I can find a travel destination that isn’t overrun with tourists.*
 
 > *As a user, I like to see the amenities available in an area or location I'm researching displayed in a suitable format.*
 
-> *As a couple, we love going on weekend city breaks! We want to explore different city break locations so that we can find a destination that is off the beaten track but still offers all the amenities.*
+> *I'm booking a surprise getaway for my significant other and I want to know more than just the locations of the different accommodation options offered in Budapest, how can I find out more?*
 
 > *As a user, I would like to be able to visualise the location I'm researching, getting to see images of the location I may potentially visit helps to inform my decision.*
 
@@ -148,9 +148,17 @@ The owner goal is to be able to provide users with any additional information th
 
 # Technologies Used 
 
-**JavaScript:**
+**Balsamiq:**
+* Was used to build the initial mockups or wireframes for this site during pre-development stage of the project.
 
-* This site uses JavaScript to implement interactive features such as the Google Maps API for the integration of custom maps and EmailJS API to provide a functional email service with sire users. 
+**Gitpod IDE:**
+* The sole IDE used to build the site. 
+
+**Git:**
+* Used for version control, to store versions and track changes in any set of files. 
+
+**Github:**
+*  Used to host both this repository and site.
 
 **HTML5:**
 
@@ -159,6 +167,10 @@ The owner goal is to be able to provide users with any additional information th
 **CSS3:** 
 
 * This site uses CSS3 to provide styling to all HTML files. 
+
+**JavaScript:**
+
+* This site uses JavaScript to implement interactive features such as the Google Maps API for the integration of custom maps and EmailJS API to provide a functional email service with site users.
 
 **Bootstrap v4.5:**
 
@@ -171,6 +183,21 @@ The owner goal is to be able to provide users with any additional information th
 **Popper:**
 
 * Is used in conjunction with Bootstrap, it is used in this project to provide tooltips specifically for the contact form. 
+
+**Google Maps JavaScript API:**
+* This API was used to render the maps found on this site, as well as the additional functionality added such as interactive markers, infoWindows, and the Place Details provided for each marker rendered on an infoPane to the left of the map.
+
+**EmailJs:**
+* This API was used to establish a means of contact between the site and its users through a contact form. The API allowed the site owner to build a custom template and allow the user to send emails via JavaScript.
+
+**Font Awesome:** 
+* Provided the icons used throughout the site to grab users attention, provide additional context visually for different elements of the site, and further enhance UX. 
+
+**TinyPNG:**
+* All images/PNG files used on this site were first reduced in file size using TinyPNG. 
+
+**Am I Responsive?:**
+* Was used to provide a visual representation of the site across multiple device viewports as seen in the 'Demo' section of this README file.
 
 **Autoprefixer:**
 
@@ -225,6 +252,25 @@ This finally cleared the status code 400 and functionality was established.
 
 # Deployment
 
+## Git: 
+### Using Git to add, commit and push code into a repository: 
+
+Storing files in Git is a two-stage process:
+​1.  Files must be added to the staging area using the "**git add**" command followed by the specified file name.
+​2. Files must be committed to the repository using the "**git commit -m**" command followed by a specified message within double quotation marks. **Note:** that it is common practice when making your first commit to a repository to provide the message "**initial commit**".
+
+### Pushing code to GitHub:
+This is achieved by connecting your local repository with your remote repository and pushing the code from local to remote.  Storing your code in a remote repository on a remote server allows it to be backed up and also be accessed by others.
+
+**To back up your code:**
+* Start from the terminal by pressing **CTRL+C** to stop the server.
+* Run "**ls**" to list the files. 
+* Begin adding and committing the code as outlined in step 1 & 2 of storing files in Git.
+* Run "**git status**" to view all files added to the staging area. 
+* Run "**git commit -m**" followed by your message contained in double quotation marks, adding the files to your local repository. 
+* Once the files have been committed, push them to the remote repository using "**git push**".
+
+## GitHub:
 This site is hosted by GitHub Pages, the publishing source chosen was the 'master' branch. To choose a publishing source and deploy the site:
 
 * Navigate to the site's **repository**
@@ -252,6 +298,97 @@ To run **locally**, you can clone this repository, or pull the code from this Gi
 `$ git clone https://github.com/KSheeds1.github.io/The-Road-Less-Travelled-Hungary-Edition-/` 
 
 * Press **Enter** to create your local clone
+
+### Fork this repository: 
+A fork is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project. 
+
+To fork this repository:
+* Log into GitHub and navigate to this repository here: https://github.com/KSheeds1/The-Road-Less-Travelled-Hungary-Edition- 
+* In the top-right corner of the page, click **Fork**. 
+
+## Google Maps JavaScript API: 
+
+**Please note:** 
+
+Before using the Maps JavaScript API, you need a **project with a billing account**, this can be set up following the steps outlined here: [https://developers.google.com/maps/gmp-get-started]. 
+Once you have created a billing account and project, you can begin using the Google Maps Platform API. 
+
+* To use Google Maps Platform, you must **enable the API** you plan to use with your project on **Cloud Console**. 
+* After setting up your Google Cloud project, you must **create and secure your API Key** to use the Maps JavaScript API. 
+
+### Creating API Keys: 
+To create an API key: 
+1. Got to the **APIs & Services > Credentials** page.
+2. On the **credentials** page, click **Create credentials > API key**. The **API key created** dialog displays your newly created API key.
+3. Click **Close**. The new API key is listed on the **Credentials** page under **API keys**. 
+
+### Restricting API keys:
+**Please note:** 
+
+**Restricting API keys** adds security to your application by ensuring only **authorized requests are made with your API Key**. To set restrictions for your API key follow the steps outlined here: https://developers.google.com/maps/api-key-best-practices#restrict_apikey
+
+
+### Adding the API key to your request: 
+You must include an API key with **every Maps JavaScript API request**. In the following example, replace `YOUR_API_KEY` with your API key.
+
+`<script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" type="text/javascript"></script>`
+
+
+## Maps JavaScript API - Places Library: 
+**Please note:** 
+
+If you are unfamiliar with the Maps JavaScript API, it is recommended that you **get an API Key prior to getting started**. 
+
+### Enable APIs:
+Before using the Places library in the Maps JavaScript API, first ensure that the **Places API is enabled in Google Cloud Console**, in the **same project set up for the Maps JavaScript API**.  
+
+1.Go to the Google Cloud Console.
+2. Click the **Select a program** button, then select the same project you set up for the Maps JavaScript API and click **Open**.
+3. From the list of APIs on the **Dashboard**, look for **Places API**. 
+4. If you see the Places API in the list, it's already enabled. If the API is is *not* listed, enable it: 
+     ​* At the top of the page, select **ENABLE APIS AND SERVICES** to display the **library** tab.
+     ​* Search for **Places API**, then select it from the results list. 
+     ​* Select **ENABLE**. When the process finishes, **Places API** appears in the list of APIs on the **Dashboard**. 
+
+### Loading the library: 
+To use the functionality contained with this library, you must **first load the `libraries` parameter in the Maps API bootstrap URL:**
+
+`<script async
+   ​src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap">
+</script>`
+
+
+**Please note:** 
+Don't forget to **add the Places API to the API key's API restrictions list**. To set restrictions for your API key follow the steps outlined here: https://developers.google.com/maps/api-key-best-practices#restrict_apikey 
+
+
+
+## EmailJS:
+
+To enable the use of the EmailJS API:
+* Create your free account here: https://dashboard.emailjs.com/sign-up
+* Add an **email service**. The owner of this site set up a **personal email service**, following the recommendation set out by EmailJS to use personal email services **for development only or for very low volume usage**. 
+* Choose **Gmail Service** 
+* Provide a **name** and **service ID**. 
+* Connect your account by hitting the "**Connect account**" button and pressing the "**Add Service**" button to complete the process.
+* To create an email template:
+    ​* Go to **Settings** and set the name as **Contact Form** and the template ID as **Contact_form**.
+* Go to **Content**.
+* The **message** variable will contain the content of the message. The **user_name** and **user_email** are the user's name and email address, respectively.
+* Fill in the **email fields**. 
+* **Save** the template by pressing the "**Save**" button. The contact form can be found in **Email Templates**.
+
+### Connecting the form and sending an Email:
+* Load the EmailJS SDK in the HTML file: 
+
+`<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>`
+
+* Initialize the SDK with your User ID: 
+
+`emailjs.init('YOUR_USER_ID');`
+
+* Submit the contact form and send it through EmailJS using the **Contact Service** and **Contact Form**: 
+`emailjs.sendForm('contact_service', 'contact_form', this)`
 
 
 # Credits
